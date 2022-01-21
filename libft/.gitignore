@@ -1,0 +1,8 @@
+build
+*.swp
+.DS_STORE
+*/.DS_STORE
+libftprintf.a
+*lib_test*
+*lib_test
+tests/**/*.lib_test
