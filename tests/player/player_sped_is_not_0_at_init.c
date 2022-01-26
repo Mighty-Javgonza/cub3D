@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_memset.c                                        :+:      :+:    :+:   */
+/*   zz_temp_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgonza <javgonza@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/03 13:04:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 16:32:39 by javgonza         ###   ########.fr       */
+/*   Created: 2022/01/21 17:05:48 by javgonza          #+#    #+#             */
+/*   Updated: 2022/01/26 15:38:11 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *s, int c, size_t n)
-{
-	size_t	control;
-	char	*ptr;
+#include "../tests.h"
+#include <stdio.h>
 
-	control = 0;
-	while (control < n)
-	{
-		ptr = s + control;
-		*ptr = c;
-		control++;
-	}
-	return (s);
+int	main()
+{
+	t_player	player;
+
+	player = init_player();
+	if (player.speed == 0)
+		return (-1);
+	return (0);
 }

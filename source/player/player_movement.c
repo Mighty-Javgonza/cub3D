@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zz_temp_test.c                                     :+:      :+:    :+:   */
+/*   player_movement.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 17:05:48 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 15:59:01 by javgonza         ###   ########.fr       */
+/*   Created: 2022/01/26 15:47:29 by javgonza          #+#    #+#             */
+/*   Updated: 2022/01/26 16:15:44 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../tests.h"
+#include "player.h"
 #include <stdio.h>
 
-int	main()
+int	player_movement(int keycode, t_player *player)
 {
-	t_player	player;
-
-	player = init_player();
-	player.cam.direction = (t_vector) {0, -1};
-	player.cam.pos.y = 0;
-	//print_vector(player.cam.pos);
-	player_move_down(&player);
-	//print_vector(player.cam.pos);
-	if (!(player.cam.pos.y > 0))
-		return (-1);
+printf("%d\n", keycode);
+	if (keycode == MAC_KEY_DOWN)
+		player_move_down(player);
+	else if (keycode == MAC_KEY_UP)
+		player_move_up(player);
+	else if (keycode == MAC_KEY_LEFT)
+		player_move_left(player);
+	else if (keycode == MAC_KEY_RIGHT)
+		player_move_right(player);
+	else
+		printf("Not valid input\n");
 	return (0);
 }

@@ -6,15 +6,15 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/21 18:42:21 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/01/26 15:25:59 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAMERA_H
 # define CAMERA_H
 
-# define	DEFAULT_PLANE_WIDTH 100
-# define	DEFAULT_PLANE_DISTANCE 3
+# define	DEFAULT_PLANE_WIDTH 5
+# define	DEFAULT_PLANE_DISTANCE 2
 # define	DEFAULT_CAMERA_RES_X 1920
 # define	DEFAULT_CAMERA_RES_Y 1080
 
@@ -31,6 +31,7 @@ typedef struct s_camera
 	size_t		res_x;
 	size_t		res_y;
 	unsigned int *draw_buffer;
+	float		*distances_to_plane;
 }				t_camera;
 
 
@@ -44,4 +45,7 @@ void	camera_render_image(t_camera *camera, t_world *world);
 void	camera_render_pixel(t_camera *cam, t_world *world, size_t index);
 
 
+
+void	camera_render_pixel(t_camera *cam, t_world *world, size_t x_pixel);
+void	paint_y_axis(t_camera *cam, t_collision col, size_t x_pixel);
 #endif

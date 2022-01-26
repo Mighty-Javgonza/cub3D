@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player.h                                           :+:      :+:    :+:   */
+/*   zz_temp_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 17:05:48 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 16:11:53 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/01/26 15:41:15 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLAYER_H
-# define PLAYER_H
-# define DEFAULT_PLAYER_SPEED 0.1
+#include "../tests.h"
+#include <stdio.h>
 
-#include "../camera/camera.h"
-#include "../mac_keys.h"
-
-typedef struct s_player
+int	main()
 {
-	t_camera	cam;
-	float		speed;
-	// Usar position de la camara
-}				t_player;
+	t_player	player;
 
-
-t_player	init_player(void);
-
-void	player_move_right(t_player *player);
-
-void	player_move_left(t_player *player);
-
-void	player_move_down(t_player *player);
-void	player_move_up(t_player *player);
-int	player_movement(int keycode, t_player *player);
-#endif
+	player = init_player();
+	player.cam.pos.x = 0;
+	//print_vector(player.cam.pos);
+	player_move_right(&player);
+	//print_vector(player.cam.pos);
+	if (!(player.cam.pos.x > 0))
+		return (-1);
+	return (0);
+}

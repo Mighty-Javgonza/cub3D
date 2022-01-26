@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_memset.c                                        :+:      :+:    :+:   */
+/*   player_move_right.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgonza <javgonza@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/03 13:04:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 16:32:39 by javgonza         ###   ########.fr       */
+/*   Created: 2022/01/26 15:30:06 by javgonza          #+#    #+#             */
+/*   Updated: 2022/01/26 15:31:12 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *s, int c, size_t n)
-{
-	size_t	control;
-	char	*ptr;
+#include "player.h"
 
-	control = 0;
-	while (control < n)
-	{
-		ptr = s + control;
-		*ptr = c;
-		control++;
-	}
-	return (s);
+void	player_move_right(t_player *player)
+{
+	player->cam.pos.x += player->speed;
 }
