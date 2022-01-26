@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   all_headers.h                                      :+:      :+:    :+:   */
+/*   hook_controls.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 15:32:16 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 18:52:02 by javgonza         ###   ########.fr       */
+/*   Created: 2022/01/26 18:54:15 by javgonza          #+#    #+#             */
+/*   Updated: 2022/01/26 18:58:53 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ALL_HEADERS_H
-# define ALL_HEADERS_H
+#include "controls.h"
+#include <mlx.h>
+#include "../player/player.h"
 
-# include "cub_math/cub_math.h"
-# include "ray_collider/ray_collider.h"
-# include "wall/wall.h"
-# include "bound_collider/bound_collider.h"
-# include "camera/camera.h"
-# include "world/world.h"
-# include "player/player.h"
-# include "debug/debug.h"
-# include "graphics/graphics.h"
-# include "controls/controls.h"
-
-#endif
+void	hook_controls(void *win, t_player *player)
+{
+	mlx_hook(win, 2, 0, &player_movement, player);
+}

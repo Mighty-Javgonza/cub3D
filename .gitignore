@@ -3,4 +3,5 @@
 *.o
 *.test
 graphic
+*.swp
 

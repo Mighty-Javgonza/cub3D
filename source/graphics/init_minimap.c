@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   all_headers.h                                      :+:      :+:    :+:   */
+/*   init_minimap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 15:32:16 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 18:52:02 by javgonza         ###   ########.fr       */
+/*   Created: 2022/01/26 18:14:06 by javgonza          #+#    #+#             */
+/*   Updated: 2022/01/26 19:04:07 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ALL_HEADERS_H
-# define ALL_HEADERS_H
+#include "graphics.h"
 
-# include "cub_math/cub_math.h"
-# include "ray_collider/ray_collider.h"
-# include "wall/wall.h"
-# include "bound_collider/bound_collider.h"
-# include "camera/camera.h"
-# include "world/world.h"
-# include "player/player.h"
-# include "debug/debug.h"
-# include "graphics/graphics.h"
-# include "controls/controls.h"
+t_minimap	init_minimap(t_graphic_environment *ge, t_world *w)
+{
+	t_minimap	rvalue;
 
-#endif
+	rvalue = (t_minimap)
+	{
+		.ge = ge,
+		.img = new_graphic_image(ge, DEFAULT_MINIMAP_RESOLUTION),
+		.world = w,
+		.draw_pos = DEFAULT_MINIMAP_DRAW_POS,
+		.background = DEFAULT_MINIMAP_BACKGROUND,
+	};
+	return (rvalue);
+}

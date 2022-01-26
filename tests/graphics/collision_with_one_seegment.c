@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 16:43:58 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 19:39:29 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/01/26 18:22:31 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,35 @@
 #include <stdio.h>
 #include <mlx.h>
 
-t_graphic_environment	ge;
-t_world					w;
-t_minimap				mini;
-
-static int	reshape(void *ignored)
-{
-	(void)ignored;
-	paint_minimap(&mini);
-	minimap_display(&mini);
-	return (0);
-}
-
 int	main()
 {
+	t_graphic_environment	ge;
+	t_graphic_image			img;
+	t_ray_collider			ray;
+	t_segment				s;
+	t_collision				col;
 
-	ge = init_graphic_environment((t_pixpos){700, 700});
+	ge = init_graphic_environment((t_pixpos){500, 500});
+	img = new_graphic_image(&ge, (t_pixpos){500, 500});
+	img.scale_factor = 40;
 
-	w = init_world();
-	add_wall(&w, (t_vector){3, 3});
-	add_wall(&w, (t_vector){3, 4});
-	add_wall(&w, (t_vector){3, 5});
-	add_wall(&w, (t_vector){5, 4});
-	add_wall(&w, (t_vector){2, 2});
-	add_wall(&w, (t_vector){8, 5});
-	add_wall(&w, (t_vector){7, 3});
-	w.player.cam.pos = (t_vector){2, 3};
-	w.player.rotation_speed = 0.1;
-	mini = init_minimap(&ge, &w);
-	mini.img.scale_factor = 30;
+	ray = init_ray_collider();
+	ray.origin = (t_vector){0.2, 2};
+	ray.direction = (t_vector){0.99, 0.01};
+	s = (t_segment){{3, 1}, {3, 4}};
 
-	hook_controls(ge.win, &mini.world->player);
-	mlx_loop_hook(ge.mlx, &reshape, NULL);
+	img.color = 0xff0000;
+	paint_segment(&img, &s);
+	paint_ray_collider(&img, &ray);
+	col = collide_ray_segment(&ray, &s);
+	t_rectangle	r;
+
+	r.pos = col.pos;
+	r.size.x = 0.1;
+	r.size.y = 0.1;
+	img.color = 0xff00ff;
+	if (col.exists)
+		paint_rect(&img, r);
+	display_image(&ge, &img, (t_pixpos){0, 0});
 	mlx_loop(ge.mlx);
 }

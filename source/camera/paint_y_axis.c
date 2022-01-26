@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 11:39:18 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 15:23:57 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/01/26 18:19:01 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	paint_y_axis(t_camera *cam, t_collision col, size_t x_pixel)
 
 	dist_to_col = vector_dist(cam->pos, col.pos);
 	paint_height = DEFAULT_WALL_REAL_HEIGHT / dist_to_col * cam->distances_to_plane[x_pixel];
+	if (paint_height > (int)cam->res_y)
+		paint_height = cam->res_y;
 	paint_offset = -paint_height / 2; // Esto se debería leer del objeto
 	while (paint_offset < paint_height / 2)
 	{

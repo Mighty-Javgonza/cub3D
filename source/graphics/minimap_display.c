@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   all_headers.h                                      :+:      :+:    :+:   */
+/*   minimap_display.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 15:32:16 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 18:52:02 by javgonza         ###   ########.fr       */
+/*   Created: 2022/01/26 18:25:18 by javgonza          #+#    #+#             */
+/*   Updated: 2022/01/26 19:05:43 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ALL_HEADERS_H
-# define ALL_HEADERS_H
+#include "graphics.h"
 
-# include "cub_math/cub_math.h"
-# include "ray_collider/ray_collider.h"
-# include "wall/wall.h"
-# include "bound_collider/bound_collider.h"
-# include "camera/camera.h"
-# include "world/world.h"
-# include "player/player.h"
-# include "debug/debug.h"
-# include "graphics/graphics.h"
-# include "controls/controls.h"
-
-#endif
+void	minimap_display(t_minimap *mini)
+{
+	display_image(mini->ge, &mini->img, mini->draw_pos);
+}

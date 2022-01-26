@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:56:16 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/25 18:06:20 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/01/26 19:33:13 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@
 static int	point_in_segment_bound(t_vector v, t_segment *s)
 {
 	if (s->p1.x < s->p2.x)
-		if (v.x > s->p2.x || v.x < s->p1.x)
+		if (v.x > s->p2.x + 0.001 || v.x < s->p1.x - 0.001)
 			return (0);
 	if (s->p1.x > s->p2.x)
-		if (v.x < s->p2.x || v.x > s->p1.x)
+		if (v.x < s->p2.x - 0.001 || v.x > s->p1.x + 0.001)
 			return (0);
 	if (s->p1.y < s->p2.y)
-		if (v.y > s->p2.y || v.y < s->p1.y)
+		if (v.y > s->p2.y + 0.001|| v.y < s->p1.y - 0.001)
 			return (0);
 	if (s->p1.y > s->p2.y)
-		if (v.y < s->p2.y || v.y > s->p1.y)
+		if (v.y < s->p2.y - 0.001 || v.y > s->p1.y + 0.001)
 			return (0);
 	return (1);
 }

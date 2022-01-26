@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 17:53:21 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/21 18:29:00 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/01/26 19:36:18 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ t_collision	collide_ray_world(t_ray_collider *rc, t_world *world)
 	{
 		current_col = calculate_ray_collider_wall_collision(rc, &world->walls[i]);
 		if (current_col.exists)
-			closest_col = current_col;
+			if (!closest_col.exists || current_col.dist < closest_col.dist)
+				closest_col = current_col;
 		i++;
 	}
 	return (closest_col);
