@@ -6,11 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:29:03 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/20 17:18:31 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/01/21 18:32:33 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
+#include <stdio.h>
 
 int	main()
 {
@@ -23,10 +24,10 @@ int	main()
 	rc.direction = (t_vector){1, 0};
 
 	wall = init_wall();
-	wall.pos = (t_vector){1, 0};
+	wall.col.pos = (t_vector){1, 0};
 
 	col = calculate_ray_collider_wall_collision(&rc, &wall);
-	if (col.pos.x != 0.5)
+	if (!(col.pos.x > 0.49))
 		return (-1);
 	return (0);
 }

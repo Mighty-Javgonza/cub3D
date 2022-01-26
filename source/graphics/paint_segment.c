@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calculate_segment_segment_collision.c              :+:      :+:    :+:   */
+/*   paint_segment.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 17:27:10 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/20 17:36:59 by javgonza         ###   ########.fr       */
+/*   Created: 2022/01/25 12:08:58 by javgonza          #+#    #+#             */
+/*   Updated: 2022/01/25 12:57:00 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub_math.h"
+#include "graphics.h"
 
-void	calculate_segment_segment_collision(t_segment_segment_collider *col)
+void	paint_segment(t_graphic_image *img, t_segment *s)
 {
-	(void)col;
+	t_vector	m;
+	t_vector	diff;
+	float		length;
+	t_vector	coords;
+
+	diff = sub_vectors(s->p2, s->p1);
+	length = vector_length(diff) * img->scale_factor;
+	coords = s->p1;
+	m.x = diff.x / length;
+	m.y = diff.y / length;
+	while (length >= 1)
+	{
+		coords = add_vectors(coords, m);
+		put_pixel(img, coords, img->color);
+		length--;
+	}
 }

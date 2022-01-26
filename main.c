@@ -4,11 +4,7 @@
 
 static void	draw(t_gbuff *gbuff)
 {
-	t_rect	r;
-
-	r = ft_create_rect(0, 0, 10, 10);
-	ft_set_color_gbuff(gbuff, 0x00FF0000);
-	ft_draw_rect(r, gbuff);
+	(void)gbuff;
 }
 
 int main()

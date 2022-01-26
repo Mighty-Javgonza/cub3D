@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:29:03 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/20 18:29:09 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/01/21 19:04:58 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,21 @@
 
 int	main()
 {
-	t_ray_collider	rc;
-	t_wall			wall;
-	t_collision		col;
-
-	rc = init_ray_collider();
-	rc.origin = (t_vector){0, 0};
-	rc.direction = (t_vector){1, 0};
+	t_ray_collider		rc;
+	t_collision			col;
+	t_wall				wall;
 
 	wall = init_wall();
-	wall.pos = (t_vector){1, 0};
-
+	wall.col.pos = (t_vector){100, 0};
+	rc = init_ray_collider();
+	rc.origin = (t_vector){0, 0};
+	rc.direction = (t_vector){0.907807, 0.419388};
+	rc.max_length = 3;
+//	rc.direction = (t_vector){1, 0};
 	col = calculate_ray_collider_wall_collision(&rc, &wall);
-	if (col.pos.x != 0.5)
+printf("%d\n", col.exists);
+	print_vector(col.pos);
+	if (col.exists)
 		return (-1);
 	return (0);
 }

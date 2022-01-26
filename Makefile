@@ -20,7 +20,7 @@ SRCS = $(SRS) $(MAIN)
 PROJECT_ADVISOR = "Bonsai	|" 
 ECHO = echo $(PROJECT_ADVISOR)
 
-MLX_ARGS = -lmlx -framework OpenGL -framework AppKit -pthread
+MLX_ARGS = -lmlx -framework OpenGL -framework AppKit -pthread -fsanitize=address
 
 LIBFT = libft/libftprintf.a
 

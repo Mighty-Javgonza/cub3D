@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 10:53:28 by javgonza          #+#    #+#             */
-/*   Updated: 2021/02/02 12:19:52 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/01/21 17:01:50 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define LIBFT_GRAPHIC_H
 
 # include "../../type_defs.h"
-# include "bezier.h"
+//# include "bezier.h"
 
 typedef struct		s_mlximage
 {
@@ -94,8 +94,8 @@ t_gserver			ft_create_gserver();
 void				ft_gserver_begin_loop();
 
 void				ft_set_color_gbuff(t_gbuff *gbuff, t_color new_color);
-void				ft_draw_rect(t_rect rect, t_gbuff *gbuff);
-void				ft_draw_bezier(t_quad_bezier, t_gbuff *gbuff);
+//void				ft_draw_rect(t_rect rect, t_gbuff *gbuff);
+//void				ft_draw_bezier(t_quad_bezier, t_gbuff *gbuff);
 
 t_byte				*ft_detect_edges(t_gbuff *gbuff);
 void				ft_debug_show_edges(t_gbuff *gbuff);

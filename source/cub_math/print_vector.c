@@ -6,15 +6,15 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 18:38:30 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/20 18:40:43 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/01/21 12:26:50 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub_math.h"
-#include <unistd.h>
+#include <stdio.h>
 
 void	print_vector(t_vector v)
 {
 	print_vector_data(v);
-	write(1, "\n", 1);
+	printf("\n");
 }
