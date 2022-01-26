@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 15:30:06 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 15:45:43 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/01/26 16:41:40 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 void	player_move_up(t_player *player)
 {
-	player->cam.pos.y -= player->speed;
+	t_vector displacement;
+
+	displacement = vector_times_float(player->cam.direction, player->speed);
+	player->cam.pos = add_vectors(player->cam.pos, displacement);
 }

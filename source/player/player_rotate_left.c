@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_move_right.c                                :+:      :+:    :+:   */
+/*   player_rotate_left.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 15:30:06 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 16:49:17 by javgonza         ###   ########.fr       */
+/*   Created: 2022/01/26 16:56:08 by javgonza          #+#    #+#             */
+/*   Updated: 2022/01/26 17:04:44 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "player.h"
 
-void	player_move_right(t_player *player)
+void	player_rotate_left(t_player *player)
 {
-	t_vector	displacement;
 	t_vector	perp;
+	t_vector	new_direction;
 
 	perp = get_perp_vector(player->cam.direction);
-	displacement = vector_times_float(perp, player->speed);
-	player->cam.pos = add_vectors(displacement, player->cam.pos);
+	perp = vector_times_float(perp, -player->rotation_speed);
+	new_direction = add_vectors(perp, player->cam.direction);
+	player->cam.direction = vector_normalize(new_direction);
 }
