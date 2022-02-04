@@ -6,12 +6,14 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:20:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/25 17:49:26 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/03 15:47:46 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB_MATH_H
 # define CUB_MATH_H
+
+#include <stdlib.h>
 
 typedef struct s_vector
 {
@@ -30,6 +32,8 @@ typedef struct s_collision
 	unsigned int	exists : 1;
 	t_vector		pos;
 	float			dist;
+	void			*target;
+	size_t			target_id;
 }				t_collision;
 
 typedef struct s_rectangle
@@ -77,4 +81,6 @@ float	vector_length(t_vector v);
 t_vector	vector_normalize(t_vector v);
 
 t_vector	sub_vectors(t_vector v1, t_vector v2);
+
+float	percent_in_segment(t_segment s, t_vector p);
 #endif

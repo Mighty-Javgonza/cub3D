@@ -19,8 +19,10 @@ SRCS = $(SRS) $(MAIN)
 
 PROJECT_ADVISOR = "Bonsai	|" 
 ECHO = echo $(PROJECT_ADVISOR)
+PWD = $(shell pwd)
 
-MLX_ARGS = -lmlx -framework OpenGL -framework AppKit -pthread -fsanitize=address
+MLX_ARGS = -framework OpenGL -framework AppKit -pthread -fsanitize=address -L minilibx_mms_20200219 -lmlx
+MLX_INCLUDE = -I minilibx_mms_20200219
 
 LIBFT = libft/libftprintf.a
 
@@ -32,15 +34,18 @@ COMPILER = $(CC) $(COMP_FLAGS)
 
 $(BUILD_PREF)%.o:$(SOURCE_PREF)%.c
 	@$(ECHO) building $@
-	@$(COMPILER) -c -o $@ $<
+	@$(COMPILER) -c -o $@ $< $(MLX_INCLUDE)
 
 $(TEST_PREF)%.test:$(TEST_PREF)%.c
 	@$(ECHO) building $<
-	@$(COMPILER) -o $@ $< $(OBJ_FILES) $(LIBFT) $(MLX_ARGS)
+	@$(COMPILER) -o $@ $< $(OBJ_FILES) $(LIBFT) $(MLX_ARGS) -headerpad_max_install_names
+	@install_name_tool -add_rpath $(PWD)/minilibx_mms_20200219 $@
+	@install_name_tool -change libmlx.dylib @rpath/libmlx.dylib $@
 
 all: libft dirs $(NAME)
 	@$(ECHO) Compiling renderer
 	$(COMPILER) -o $(NAME) $(MAIN) $(OBJ_FILES) $(LIBFT) $(MLX_ARGS)
+
 	@$(ECHO) Compilation Succesful
 
 dirs:

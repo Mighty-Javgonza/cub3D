@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 16:43:58 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 19:07:48 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/04 16:20:47 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_graphic_image
 	unsigned int	*addr;
 	unsigned int	color;
 	float			scale_factor;
+	int				line_length;
 }				t_graphic_image;
 
 typedef struct s_graphic_environment
@@ -81,4 +82,6 @@ void	paint_miniplayer(t_graphic_image *img, t_player *p);
 void	minimap_paint_player(t_minimap *mp);
 void	paint_miniplayer_vision_cone(t_minimap *mp);
 
+
+t_graphic_image	graphic_image_from_png(t_graphic_environment *ge, char *path);
 #endif

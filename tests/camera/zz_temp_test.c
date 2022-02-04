@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 16:33:54 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/04 17:07:19 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,12 @@ static int	reshape(void *ignored)
 	camera_render_image(&world.player.cam, &world);
 	ft_memmove(addr, world.player.cam.draw_buffer, 4 * world.player.cam.res_x * (world.player.cam.res_y - 1));
 	mlx_put_image_to_window(ge.mlx, ge.win, mlx_img, 0, 0);
-	img.color = 0xa0000000;
-	clear_image(&img);
-	paint_world(&img, &world);
-	display_image(&ge, &img, (t_pixpos){0, 0});
 	return (0);
 }
 
 int main()
 {
+	t_graphic_image	**images;
 
 	ge = init_graphic_environment((t_pixpos){1920, 1080});
 	mlx_img = mlx_new_image(ge.mlx, 1920, 1080);
@@ -49,13 +46,22 @@ int main()
 	addr = mlx_get_data_addr(mlx_img, &bpp, &line_length,
 								&endian);
 
-
+	images = malloc(sizeof(*images) * 4);
+	images[0] = malloc(sizeof(**images));
+	*(images[0]) = graphic_image_from_png(&ge, "assets/walls/robrodri.png");
+	images[1] = malloc(sizeof(**images));
+	*(images[1]) = graphic_image_from_png(&ge, "assets/walls/robrodri.png");
+	images[2] = malloc(sizeof(**images));
+	*(images[2]) = graphic_image_from_png(&ge, "assets/walls/javgonza.png");
+	images[3] = malloc(sizeof(**images));
+	*(images[3]) = graphic_image_from_png(&ge, "assets/walls/mcordoba.png");
+//	create_default_textures(images, &ge);
 	world = init_world();
 	add_wall(&world, (t_vector){3, 2});
 	add_wall(&world, (t_vector){6, 1});
 	add_wall(&world, (t_vector){3, 0});
-//	add_wall(&world, (t_vector){3, -2});
-//	add_wall(&world, (t_vector){6, 4});
+	assign_parent_to_colliders(&world);
+	assign_default_textures(&world, images);
 	mlx_hook(ge.win, 2, 0, &player_movement, &world.player);
 	mlx_loop_hook(ge.mlx, reshape, NULL);
 	mlx_loop(ge.mlx);

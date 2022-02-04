@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 15:25:59 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:35:11 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_camera
 	size_t		res_y;
 	unsigned int *draw_buffer;
 	float		*distances_to_plane;
+	size_t		current_render_x_pixel;
 }				t_camera;
 
 
@@ -47,5 +48,11 @@ void	camera_render_pixel(t_camera *cam, t_world *world, size_t index);
 
 
 void	camera_render_pixel(t_camera *cam, t_world *world, size_t x_pixel);
-void	paint_y_axis(t_camera *cam, t_collision col, size_t x_pixel);
+void	paint_y_axis(t_camera *cam, t_collision col);
+
+struct s_paint_height;
+t_vector	get_vector_to_plane_from_camera_pixel(t_camera *cam, size_t pixel);
+void	calculate_distances_to_plane(t_camera *c);
+
+
 #endif

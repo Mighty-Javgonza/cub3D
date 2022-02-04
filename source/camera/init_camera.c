@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:22:43 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 13:09:32 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/04 17:58:53 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ t_camera	init_camera()
 	};
 	restart_draw_buffer(&rvalue);
 	rvalue.distances_to_plane = malloc(sizeof(*rvalue.distances_to_plane) * DEFAULT_CAMERA_RES_X);
+	calculate_distances_to_plane(&rvalue);
 	return (rvalue);
 }

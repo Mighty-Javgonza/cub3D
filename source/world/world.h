@@ -26,4 +26,7 @@ typedef struct s_world
 
 t_world	init_world();
 void	add_wall(t_world *world, t_vector wall_pos);
+
+void	assign_default_textures(t_world *w, t_graphic_image **images);
+void assign_parent_to_colliders(t_world *w);
 #endif

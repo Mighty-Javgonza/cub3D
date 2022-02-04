@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:43:40 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/25 17:53:02 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/03 16:22:37 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ t_collision	collide_ray_bound_collider(t_ray_collider *ray, t_bound_collider *bc
 			{
 				closest_col = current_col;
 				closest_dist = current_col.dist;
+				closest_col.target_id = i;
+				closest_col.target = bc;
 			}
 		}
 		i++;

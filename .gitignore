@@ -4,4 +4,4 @@
 *.test
 graphic
 *.swp
-
+*.DS_Store
