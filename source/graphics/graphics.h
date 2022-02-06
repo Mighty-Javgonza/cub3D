@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 16:43:58 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/04 16:20:47 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/06 11:58:05 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ typedef struct s_graphic_image
 
 typedef struct s_graphic_environment
 {
-	void	*mlx;
-	void	*win;
-	void	*draw_buffer;
+	void			*mlx;
+	void			*win;
+	t_graphic_image	draw_buffer;
 }				t_graphic_environment;
 
 typedef struct s_minimap
@@ -69,19 +69,14 @@ void	paint_world(t_graphic_image *img, t_world *w);
 void	put_pixel(t_graphic_image *img, t_vector pos, unsigned int color);
 void	paint_rect(t_graphic_image *img, t_rectangle r);
 void	clear_image(t_graphic_image *img);
-
-
 t_minimap	init_minimap(t_graphic_environment *ge, t_world *w);
 void	paint_minimap(t_minimap *mp);
-
 void	minimap_display(t_minimap *mini);
-
 void	minimap_paint_player(t_minimap *mini);
 void	paint_miniplayer(t_graphic_image *img, t_player *p);
-
 void	minimap_paint_player(t_minimap *mp);
 void	paint_miniplayer_vision_cone(t_minimap *mp);
-
-
 t_graphic_image	graphic_image_from_png(t_graphic_environment *ge, char *path);
+t_graphic_image	*new_image_from_png(t_graphic_environment *ge, char *path);
+void	display_camera_view(t_graphic_environment *ge, t_camera *camera);
 #endif

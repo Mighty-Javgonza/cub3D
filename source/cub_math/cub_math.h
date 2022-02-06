@@ -83,4 +83,6 @@ t_vector	vector_normalize(t_vector v);
 t_vector	sub_vectors(t_vector v1, t_vector v2);
 
 float	percent_in_segment(t_segment s, t_vector p);
+
+t_vector	vector_divided_float(t_vector v, float div);
 #endif

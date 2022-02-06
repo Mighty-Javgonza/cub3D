@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_graphic_environment.c                         :+:      :+:    :+:   */
+/*   vector_divided_float.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 16:45:54 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/06 11:58:47 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/04 18:15:28 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/06 11:35:36 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "graphics.h"
-#include <mlx.h>
+#include "cub_math.h"
 
-t_graphic_environment	init_graphic_environment(t_pixpos res)
+t_vector	vector_divided_float(t_vector v, float div)
 {
-	t_graphic_environment	rvalue;
+	t_vector	result;
 
-	rvalue = (t_graphic_environment)
-	{
-		.mlx = mlx_init(),
-	};
-	rvalue.win = mlx_new_window(rvalue.mlx, res.x, res.y, "Cub3D");
-	rvalue.draw_buffer = new_graphic_image(&rvalue, res);
-	return (rvalue);
+	result.x = v.x / div;
+	result.y = v.y / div;
+	return (result);
 }

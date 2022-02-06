@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/04 17:07:19 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/06 12:11:02 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ static int	reshape(void *ignored)
 	world.walls[0].col.pos.y += 0.015;
 	ft_memset(world.player.cam.draw_buffer, 0x0, world.player.cam.res_x * world.player.cam.res_y * 4);
 	camera_render_image(&world.player.cam, &world);
-	ft_memmove(addr, world.player.cam.draw_buffer, 4 * world.player.cam.res_x * (world.player.cam.res_y - 1));
-	mlx_put_image_to_window(ge.mlx, ge.win, mlx_img, 0, 0);
+	display_camera_view(&ge, &world.player.cam);
 	return (0);
 }
 
@@ -47,15 +46,11 @@ int main()
 								&endian);
 
 	images = malloc(sizeof(*images) * 4);
-	images[0] = malloc(sizeof(**images));
-	*(images[0]) = graphic_image_from_png(&ge, "assets/walls/robrodri.png");
-	images[1] = malloc(sizeof(**images));
-	*(images[1]) = graphic_image_from_png(&ge, "assets/walls/robrodri.png");
-	images[2] = malloc(sizeof(**images));
-	*(images[2]) = graphic_image_from_png(&ge, "assets/walls/javgonza.png");
-	images[3] = malloc(sizeof(**images));
-	*(images[3]) = graphic_image_from_png(&ge, "assets/walls/mcordoba.png");
-//	create_default_textures(images, &ge);
+	images[0] = new_image_from_png(&ge, "assets/walls/robrodri.png");
+	images[1] = new_image_from_png(&ge, "assets/walls/javgonza.png");
+	images[2] = new_image_from_png(&ge, "assets/walls/tomartin.png");
+	images[3] = new_image_from_png(&ge, "assets/walls/fgata-va.png");
+
 	world = init_world();
 	add_wall(&world, (t_vector){3, 2});
 	add_wall(&world, (t_vector){6, 1});
