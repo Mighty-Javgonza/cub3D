@@ -87,4 +87,7 @@ float	percent_in_segment(t_segment s, t_vector p);
 t_vector	vector_divided_float(t_vector v, float div);
 
 float	proportion_between(float low_bound, float up_bound, float value);
+
+float	interpolate_float(float max_val, float min_val, size_t step_count, size_t step);
+int	interpolate_int(int min_val, int max_val, size_t step_count, size_t step);
 #endif

@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/06 18:49:42 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:39:45 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,15 @@ typedef struct s_wall_slice_painter
 	int		z_start_in_screen;
 	int		z_end_in_screen;
 	float	dist_to_slice;
+	int		column_in_image;
 }		t_wall_slice_painter;
+
+typedef struct s_wall_slice_interpolator
+{
+	t_wall_slice_painter	start;
+	t_wall_slice_painter	end;
+	size_t					step_count;
+}				t_wall_slice_interpolator;
 
 
 t_camera	init_camera();
@@ -54,21 +62,16 @@ t_ray_collider	camera_pixel_to_ray(t_camera *cam, size_t index);
 void	restart_draw_buffer(t_camera *cam);
 
 void	camera_render_image(t_camera *camera, t_world *world);
-void	camera_render_pixel(t_camera *cam, t_world *world, size_t index);
-
-
-
 void	camera_render_pixel(t_camera *cam, t_world *world, size_t x_pixel);
-void	paint_y_axis(t_camera *cam, t_collision col);
-
-struct s_paint_height;
 t_vector	get_vector_to_plane_from_camera_pixel(t_camera *cam, size_t pixel);
 void	calculate_distances_to_plane(t_camera *c);
-
-
-
 int	get_column_in_image(t_collision col, t_graphic_image *image);
 int	get_row_in_image(t_wall_slice_painter slice, int paint_offset, t_graphic_image *image);
-
 void	calculate_slice_z_offset(t_wall_slice_painter *slice, t_camera *cam, t_collision col);
+t_wall_slice_painter	calculate_paint_slice(t_camera *cam, t_collision col);
+void	paint_wall_slice(t_camera *cam, t_wall_slice_painter slice, t_graphic_image *texture);
+t_collision	collision_from_camera_pixel(t_camera *cam, t_world *world, size_t pixel);
+void	camera_render_pixel_group(t_camera *cam, t_world *world, size_t start_pixel, size_t group_size);
+t_wall_slice_painter	interpolate_slice(t_wall_slice_painter start_slice, t_wall_slice_painter end_slice, size_t max_value, size_t value);
+
 #endif

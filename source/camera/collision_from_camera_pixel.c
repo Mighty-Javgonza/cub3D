@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   textures.h                                         :+:      :+:    :+:   */
+/*   collision_from_camera_pixel.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 10:37:10 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/03 15:25:17 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/07 11:16:35 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/07 11:17:57 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEXTURES_H
-# define TEXTURES_H
+#include "camera.h"
 
-#include "../graphics/graphics.h"
-void	create_default_textures(t_graphic_image **images, t_graphic_environment *ge);
+t_collision	collision_from_camera_pixel(t_camera *cam, t_world *world, size_t pixel)
+{
+	t_ray_collider	rc;
 
-
-t_graphic_image	*get_texture_from_collision(t_collision col);
-#endif
+	rc = camera_pixel_to_ray(cam, pixel);
+	return (collide_ray_world(&rc, world));
+}

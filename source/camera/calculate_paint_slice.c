@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   camera_render_pixel.c                              :+:      :+:    :+:   */
+/*   calculate_paint_slice.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 17:49:12 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/07 11:29:56 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/07 11:07:52 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/07 15:40:55 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
-#include <stdio.h>
-#include "../world/world.h"
+#include "../textures/textures.h"
 
-void	camera_render_pixel(t_camera *cam, t_world *world, size_t x_pixel)
+t_wall_slice_painter	calculate_paint_slice(t_camera *cam, t_collision col)
 {
-	t_collision				col;
 	t_wall_slice_painter	slice;
+	t_graphic_image			*texture;
 
-	cam->current_render_x_pixel = x_pixel;
-	col = collision_from_camera_pixel(cam, world, x_pixel);
-	if (col.exists)
-	{
-		slice = calculate_paint_slice(cam, col);
-		paint_wall_slice(cam, slice, ((t_bound_collider *)col.target)->parent_wall->texturizer.textures[col.target_id]);
-	}
+	texture = get_texture_from_collision(col);
+	slice.column_in_image = get_column_in_image(col, texture);
+	slice.dist_to_slice = vector_dist(col.pos, cam->pos) / cam->distances_to_plane[cam->current_render_x_pixel];
+	calculate_slice_z_offset(&slice, cam, col);
+	return (slice);
 }
