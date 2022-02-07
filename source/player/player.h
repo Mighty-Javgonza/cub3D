@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 17:05:48 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 17:09:03 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/07 10:55:26 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,8 @@ int	player_movement(int keycode, t_player *player);
 void	player_rotate_left(t_player *player);
 
 void	player_rotate_right(t_player *player);
+
+void	player_move_up_z(t_player *player);
+
+void	player_move_down_z(t_player *player);
 #endif

@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:07:41 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/04 18:07:35 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/06 18:29:12 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define DEFAULT_WALL_WIDTH 1
 # define DEFAULT_WALL_HEIGHT 1
-# define DEFAULT_WALL_REAL_HEIGHT 40
+# define DEFAULT_WALL_REAL_HEIGHT 1
 # define WALL_SEGMENT_COUNT 4
 
 #include "../cub_math/cub_math.h"

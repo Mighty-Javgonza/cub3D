@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zz_temp_test.c                                     :+:      :+:    :+:   */
+/*   get_row_in_image.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/06 15:41:56 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/06 17:42:04 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/07 10:46:55 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../tests.h"
+#include "camera.h"
+#include <stdio.h>
+#include "../graphics/graphics.h"
 
-int main()
+int	get_row_in_image(t_wall_slice_painter slice, int paint_offset, t_graphic_image *image)
 {
-	t_camera		camera;
-	t_ray_collider	rc;
+	int 	image_row;
+	float	step;
+	float	p;
 
-	camera = init_camera();
-	camera.res_x = 3;
-	camera.plane_distance = 1;
-	rc = camera_pixel_to_ray(&camera, 1);	
-	if (!(rc.direction.x > 0))
-		return (-1);
-	camera.direction.x = -1;
-	rc = camera_pixel_to_ray(&camera, 1);	
-	if (!(rc.direction.x < 0))
-		return (-1);
-	return (0);
+	step = (float)slice.height_in_screen / (float)image->res.y;
+	p = proportion_between(0, slice.height_in_screen, paint_offset - slice.z_start_in_screen);
+	image_row = p * image->res.y;
+	return (image_row);
 }

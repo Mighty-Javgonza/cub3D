@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/04 12:35:11 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/06 18:49:42 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,26 @@
 typedef struct s_camera
 {
 	t_vector	pos;
+	float		z_axis_pos;
 	t_vector	direction;
 	float		plane_distance;
 	float		plane_width;
+	float		plane_height;
 	size_t		res_x;
 	size_t		res_y;
 	unsigned int *draw_buffer;
 	float		*distances_to_plane;
 	size_t		current_render_x_pixel;
 }				t_camera;
+
+typedef struct s_wall_slice_painter
+{
+	int		height_in_screen;
+	int		height_in_world;
+	int		z_start_in_screen;
+	int		z_end_in_screen;
+	float	dist_to_slice;
+}		t_wall_slice_painter;
 
 
 t_camera	init_camera();
@@ -55,4 +66,9 @@ t_vector	get_vector_to_plane_from_camera_pixel(t_camera *cam, size_t pixel);
 void	calculate_distances_to_plane(t_camera *c);
 
 
+
+int	get_column_in_image(t_collision col, t_graphic_image *image);
+int	get_row_in_image(t_wall_slice_painter slice, int paint_offset, t_graphic_image *image);
+
+void	calculate_slice_z_offset(t_wall_slice_painter *slice, t_camera *cam, t_collision col);
 #endif

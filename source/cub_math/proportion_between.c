@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zz_temp_test.c                                     :+:      :+:    :+:   */
+/*   proportion_between.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/06 15:41:56 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/06 19:22:23 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/07 10:38:24 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../tests.h"
+#include "cub_math.h"
+#include <stdio.h>
 
-int main()
+float	proportion_between(float low_bound, float up_bound, float value)
 {
-	t_camera		camera;
-	t_ray_collider	rc;
+	float	proportion;
+	float	size;
 
-	camera = init_camera();
-	camera.res_x = 3;
-	camera.plane_distance = 1;
-	rc = camera_pixel_to_ray(&camera, 1);	
-	if (!(rc.direction.x > 0))
-		return (-1);
-	camera.direction.x = -1;
-	rc = camera_pixel_to_ray(&camera, 1);	
-	if (!(rc.direction.x < 0))
-		return (-1);
-	return (0);
+	size = up_bound - low_bound;
+	proportion = (value - low_bound) / size;
+	return (proportion);
 }
