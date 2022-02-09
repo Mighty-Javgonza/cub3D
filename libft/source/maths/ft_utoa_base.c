@@ -6,9 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/03 08:56:20 by javgonza          #+#    #+#             */
-/*   Updated: 2020/11/24 14:17:21 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:15:29 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft_math.h"
+#include <stdlib.h>
 
 char	*ft_utoa_base(long long int n, unsigned int base)
 {

@@ -6,11 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:20:32 by javgonza          #+#    #+#             */
-/*   Updated: 2020/11/24 14:21:22 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:14:40 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "geometry.h"
+#include "libft_math.h"
 
 /*
 ** Returns a vector applying ft_max_d to

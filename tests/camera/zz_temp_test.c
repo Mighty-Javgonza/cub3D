@@ -6,22 +6,33 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/07 12:32:57 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/09 13:28:41 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
+#include <stdio.h>
 #include <mlx.h>
 #include "../../libft/libft.h"
 
 int main()
 {
-	t_wall_slice_painter	start;
-	t_wall_slice_painter	end;
-	t_wall_slice_painter	mid;
-
-	start.height_in_screen = 200;
-	end.height_in_screen = 210;
-	mid = interpolate_slice(start, end, 6, 2);
+	t_world					w;
+	t_camera				*cam;
+	t_collision_candidate	*candidate;
+	
+	w = init_world();
+	add_wall(&w, (t_vector){0, 0});
+	add_wall(&w, (t_vector){1, 0});
+	add_wall(&w, (t_vector){2, 0});
+	add_wall(&w, (t_vector){3, 0});
+	assign_parent_to_colliders(&w);
+	cam = &w.player.cam;
+	cam->direction = (t_vector){1, 0};
+	calculate_candidate_colliders(cam, &w);
+	candidate = &cam->collision_candidates[1];
+printf("%zu %zu\n", candidate->start_pixel, candidate->end_pixel);
+	if (candidate->is_in_screen != 1)
+		return (-1);
 	return (0);
 }

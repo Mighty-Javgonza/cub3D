@@ -44,4 +44,8 @@ void	player_rotate_right(t_player *player);
 void	player_move_up_z(t_player *player);
 
 void	player_move_down_z(t_player *player);
+
+void	destroy_player(t_player *player);
+
+
 #endif

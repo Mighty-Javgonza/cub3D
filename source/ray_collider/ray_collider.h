@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:29:03 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 19:38:41 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:55:51 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 
 # define DEFAULT_RAY_COLLIDER_LENGTH 30
 
-typedef struct s_camera	t_camera;
-typedef struct s_world	t_world;
+typedef struct s_camera					t_camera;
+typedef struct s_collision_candidate	t_collision_candidate;
+typedef struct s_world					t_world;
 
 typedef struct s_ray_collider
 {
@@ -39,4 +40,6 @@ t_segment	ray_to_segment(t_ray_collider *ray);
 t_collision	collide_ray_bound_collider(t_ray_collider *ray, t_bound_collider *bc);
 
 t_collision	collide_ray_world(t_ray_collider *rc, t_world *world);
+
+t_collision	collide_ray_candidates(t_ray_collider *rc, t_collision_candidate *candidates, size_t candidate_count);
 #endif

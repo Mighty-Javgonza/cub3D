@@ -32,4 +32,6 @@ typedef struct s_wall
 
 t_wall	init_wall();
 void	calculate_wall_segments(t_wall *wall);
+
+void	destroy_one_wall(t_wall *wall);
 #endif

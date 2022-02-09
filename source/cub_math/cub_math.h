@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:20:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/03 15:47:46 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 19:48:47 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,14 @@ float	proportion_between(float low_bound, float up_bound, float value);
 
 float	interpolate_float(float max_val, float min_val, size_t step_count, size_t step);
 int	interpolate_int(int min_val, int max_val, size_t step_count, size_t step);
+
+float	interpolate_float(float min_val, float max_val, size_t step_count, size_t step);
+float	vector_dot(t_vector v1, t_vector v2);
+
+int	int_is_in_range(int bound1, int bound2, int value);
+
+
+t_segment	sub_segment_vector(t_segment s, t_vector v);
+
+t_segment	sub_segment_vector_vfirst(t_segment s, t_vector v);
 #endif

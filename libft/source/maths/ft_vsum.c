@@ -6,9 +6,11 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:08:52 by javgonza          #+#    #+#             */
-/*   Updated: 2020/11/24 14:09:05 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:16:02 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft_math.h"
 
 /*
 ** Returns the sum of 2 given vectors

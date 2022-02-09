@@ -6,9 +6,12 @@
 /*   By: javgonza <javgonza@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 13:03:10 by javgonza          #+#    #+#             */
-/*   Updated: 2020/12/16 11:36:51 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:13:26 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft_math.h"
+#include "../isfunctions/libft_isfunctions.h"
 
 int	ft_atoi(const char *nptr)
 {

@@ -6,9 +6,11 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:07:00 by javgonza          #+#    #+#             */
-/*   Updated: 2020/11/24 14:13:35 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:15:57 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft_math.h"
 
 /*
 ** Subtracts two vectors by components

@@ -27,4 +27,6 @@ typedef struct s_collider_texturizer
 t_collider_texturizer	init_collider_texturizer(size_t	texture_count);
 
 void	assign_textures(t_collider_texturizer *ct, t_graphic_image **images);
+
+void	destroy_texturizer(t_collider_texturizer *texturizer);
 #endif

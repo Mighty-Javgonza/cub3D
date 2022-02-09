@@ -79,4 +79,9 @@ void	paint_miniplayer_vision_cone(t_minimap *mp);
 t_graphic_image	graphic_image_from_png(t_graphic_environment *ge, char *path);
 t_graphic_image	*new_image_from_png(t_graphic_environment *ge, char *path);
 void	display_camera_view(t_graphic_environment *ge, t_camera *camera);
+
+void	destroy_graphic_environment(t_graphic_environment *ge);
+void	destroy_graphic_image(t_graphic_image *img, void *mlx);
+
+
 #endif

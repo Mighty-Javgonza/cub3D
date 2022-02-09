@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:32:16 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/03 10:49:55 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 15:23:38 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,8 @@
 # include "controls/controls.h"
 # include "textures/textures.h"
 # include "textures/collider_texturizer/collider_texturizer.h"
+# include "parsing/parsing.h"
+
+
 
 #endif

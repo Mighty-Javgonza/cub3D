@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:06:05 by javgonza          #+#    #+#             */
-/*   Updated: 2020/11/24 14:14:24 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:15:48 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 ** Returns a vector resulting of the multiplication
 ** of a vector by a scaling factor
 */
+
+#include "libft_math.h"
 
 t_vector	ft_vmult(t_vector v, double sf)
 {

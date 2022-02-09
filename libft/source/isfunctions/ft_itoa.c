@@ -6,11 +6,12 @@
 /*   By: javgonza <javgonza@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 13:04:21 by javgonza          #+#    #+#             */
-/*   Updated: 2020/12/16 11:37:30 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:17:03 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "../maths/libft_math.h"
 
 static char	*get_initial_array(int n, int ndigits)
 {

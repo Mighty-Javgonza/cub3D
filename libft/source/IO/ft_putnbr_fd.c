@@ -6,11 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:02:50 by javgonza          #+#    #+#             */
-/*   Updated: 2020/12/16 11:40:36 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:06:18 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "../maths/libft_math.h"
 
 void		ft_putnbr_fd(int n, int fd)
 {

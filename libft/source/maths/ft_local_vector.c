@@ -6,11 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:26:48 by javgonza          #+#    #+#             */
-/*   Updated: 2020/11/24 14:28:33 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:13:43 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "geometry.h"
+#include "libft_math.h"
 
 /*
 ** Puts a vector (represented in x=(1,0,0) y=(0,1,0) z=(0,0,1))

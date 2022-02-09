@@ -6,13 +6,15 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 09:45:06 by javgonza          #+#    #+#             */
-/*   Updated: 2020/12/22 12:10:19 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:19:50 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** Adds the value of 2 colors
 */
+
+#include "../maths/libft_math.h"
 
 t_color	ft_add_colors(t_color c1, t_color c2)
 {

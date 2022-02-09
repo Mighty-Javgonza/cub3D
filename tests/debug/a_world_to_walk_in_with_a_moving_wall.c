@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/06 21:18:14 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 15:22:59 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,13 @@ int main()
 	world.walls[4].col.z_axis_height = 0.6;
 	world.walls[5].col.z_axis_height = 0.4;
 	world.walls[6].col.z_axis_height = 0.2;
-	mlx_hook(ge.win, 2, 0, &player_movement, &world.player);
+
+	t_global_environment	gb;
+
+	gb.ge = &ge;
+	gb.world = &world;
+	hook_controls(&gb);
+	hook_events(&gb);
 	mlx_loop_hook(ge.mlx, reshape, NULL);
 	mlx_loop(ge.mlx);
 }

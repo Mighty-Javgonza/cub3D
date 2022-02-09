@@ -6,12 +6,11 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 16:44:04 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/03 16:48:43 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 13:35:06 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "world.h"
-#include "../../libft/libft.h"
 
 void	add_list_of_wall(t_world *w, t_list *coordinate_walls)
 {

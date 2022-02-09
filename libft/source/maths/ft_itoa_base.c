@@ -6,11 +6,13 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 09:18:05 by javgonza          #+#    #+#             */
-/*   Updated: 2020/12/16 11:36:38 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:13:31 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include "libft_math.h"
 
 static int	abs_lli(long long int n)
 {

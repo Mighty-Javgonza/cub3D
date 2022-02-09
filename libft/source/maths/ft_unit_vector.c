@@ -6,11 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:16:29 by javgonza          #+#    #+#             */
-/*   Updated: 2020/11/24 14:18:10 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:15:20 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "geometry.h"
+#include "libft_math.h"
 
 /*
 ** Returns a vector of length 1 with same direction

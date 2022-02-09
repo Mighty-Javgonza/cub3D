@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:10:00 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/07 16:44:44 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:56:26 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 void	camera_render_image(t_camera *camera, t_world *world)
 {
 	size_t	i;
-	size_t	group_size = 80;
+	size_t	group_size = 30;
 	
+	calculate_candidate_colliders(camera, world);
 	i = 0;
 	while (i < camera->res_x - group_size)
 	{

@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 13:56:41 by javgonza          #+#    #+#             */
-/*   Updated: 2020/12/17 09:57:49 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:37:01 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int			ft_strlcat(char *dst, const char *src, t_size_t n);
 int			ft_strlcpy(char *dst, const char *src, t_size_t size);
 char		*ft_strchr(const char *s, int c);
 char		*ft_strcharset(const char *s, char *set);
+char		*ft_strcharset_n(const char *s, char *set);
 char		*ft_strncharset(const char *s, char *set, size_t n);
 char		*ft_strdup(const char *s);
 char		*ft_substr(char const *s, unsigned int start, t_size_t len);
