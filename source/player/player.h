@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 17:05:48 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/07 10:55:26 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/10 14:24:55 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ typedef struct s_player
 	float		speed;
 	float		rotation_speed;
 	// Usar position de la camara
+	unsigned int	move_right:1;
+	unsigned int	move_left:1;
+	unsigned int	move_forwards:1;
+	unsigned int	move_backwards:1;
+	unsigned int	rotate_left:1;
+	unsigned int	rotate_right:1;
 }				t_player;
 
 
@@ -48,4 +54,7 @@ void	player_move_down_z(t_player *player);
 void	destroy_player(t_player *player);
 
 
+
+int	player_movement_release(int keycode, t_player *player);
+void	player_update_movement(t_player *player);
 #endif

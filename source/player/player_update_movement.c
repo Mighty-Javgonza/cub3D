@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_player.c                                      :+:      :+:    :+:   */
+/*   player_update_movement.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 17:09:59 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/10 14:26:51 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/10 14:30:11 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/10 14:33:04 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "player.h"
 
-t_player	init_player(void)
+void	player_update_movement(t_player *player)
 {
-	t_player	player;
-
-	player.cam = init_camera();
-	player.speed = DEFAULT_PLAYER_SPEED;
-	player.rotation_speed = DEFAULT_PLAYER_ROTATION_SPEED;
-	player.move_right = 0;
-	player.move_left = 0;
-	player.move_forwards = 0;
-	player.move_backwards = 0;
-	player.rotate_left = 0;
-	player.rotate_right = 0;
-	return (player);
+	if (player->move_right == 1)
+		player_move_right(player);
+	 if (player->move_left == 1)
+		player_move_left(player);
+	 if (player->move_forwards == 1)
+		player_move_up(player);
+	 if (player->move_backwards == 1)
+		player_move_down(player);
+	 if (player->rotate_right == 1)
+		player_rotate_right(player);
+	 if (player->rotate_left == 1)
+		player_rotate_left(player);
 }

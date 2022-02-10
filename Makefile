@@ -30,7 +30,7 @@ MLX_INCLUDE = -I minilibx_mms_20200219
 
 LIBFT = libft/libftprintf.a
 
-CC = gcc -O3#-g -fsanitize=address 
+CC = gcc -O3 #-g -fsanitize=address 
 COMP_FLAGS = -Wall -Wextra -Werror -pthread
 COMPILER = $(CC) $(COMP_FLAGS)
 

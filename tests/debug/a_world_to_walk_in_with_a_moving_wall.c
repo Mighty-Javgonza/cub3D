@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/08 15:22:59 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/10 14:34:29 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static int	reshape(void *ignored)
 	world.walls[0].col.pos.y += 0.015;
 	ft_memset(world.player.cam.draw_buffer, 0x0, world.player.cam.res_x * world.player.cam.res_y * 4);
 	camera_render_image(&world.player.cam, &world);
+	player_update_movement(&world.player);
 	display_camera_view(&ge, &world.player.cam);
 	return (0);
 }

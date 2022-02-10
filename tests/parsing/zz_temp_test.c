@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 15:23:37 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/09 15:58:28 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/10 14:01:52 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main()
 {
 	t_map	map;
 	
-	map = init_map("maps/foolisnesh");
+	map = init_map("maps/simple_map");
 	open_map(&map);
 	parse_world_lines(&map);
 	if (closed_map(&map))
