@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:58:36 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/09 15:54:32 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:39:59 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	closed_map(t_map *map)
 		x = 0;
 		while (*char_line != '\0')
 		{
-			x++;
 			current_char = get_map_char_at(map, x, y);
 			if (ft_ischarset(current_char, "0" MAP_PLAYER_DIRECTIONS))
 			{
@@ -39,6 +38,7 @@ int	closed_map(t_map *map)
 				if (neighbours_ok != 1)
 					return (0);
 			}
+			x++;
 			char_line++;
 		}
 		line = line->next;

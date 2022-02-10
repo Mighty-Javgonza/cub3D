@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 19:46:03 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/08 19:48:29 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/09 18:38:52 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	int_is_in_range(int bound1, int bound2, int value)
 		upper_bound = bound2;
 		lower_bound = bound1;
 	}
-	if (lower_bound <= value && value >= upper_bound)
+	if (lower_bound <= value && value <= upper_bound)
 		return (1);
 	return (0);
 }

@@ -6,13 +6,19 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 17:11:53 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/09 14:19:52 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/09 20:16:15 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
 #include <stdio.h>
 #include "../world/world.h"
+
+typedef struct	s_camera_range
+{
+	int	start;
+	int	end;
+}				t_camera_range;
 
 static void	allocate_candidate_colliders(t_camera *cam, t_world *world)
 {
@@ -53,25 +59,72 @@ static int	pixel_is_in_camera_bounds(t_camera *cam, int pixel)
 	return (1);
 }
 
-static void	calculate_candidate_bounds_in_screen(t_camera *cam, t_collision_candidate *candidate)
+static t_camera_range	get_segment_range(t_camera *cam, t_segment segment, t_vector pos)
 {
-	int			start_pixel;
-	int			end_pixel;
-	t_segment	segment_as_seen_from_camera;
+	t_segment		segment_as_seen_from_camera;
+	t_camera_range	range;
+	int				start_pixel;
+	int				end_pixel;
 
-	segment_as_seen_from_camera = candidate->col->segments[0];
-	segment_as_seen_from_camera = add_segment_vector(segment_as_seen_from_camera, candidate->col->pos);
+	segment_as_seen_from_camera = segment;
+	segment_as_seen_from_camera = add_segment_vector(segment_as_seen_from_camera, pos);
 	segment_as_seen_from_camera = sub_segment_vector_vfirst(segment_as_seen_from_camera, cam->pos);
 	start_pixel = camera_point_to_camera_pixel(cam, segment_as_seen_from_camera.p1);
 	end_pixel = camera_point_to_camera_pixel(cam, segment_as_seen_from_camera.p2);
-	if (pixel_is_in_camera_bounds(cam, start_pixel) && pixel_is_in_camera_bounds(cam, end_pixel))
+	if (start_pixel > end_pixel)
 	{
-		candidate->start_pixel = start_pixel;
-		candidate->end_pixel = end_pixel;
+		range.start = end_pixel;
+		range.end = start_pixel;
 	}
 	else
-		candidate->is_in_screen = 0;
+	{
+		range.start = start_pixel;
+		range.end = end_pixel;
+	}
+	return (range);
+}
 
+static int	range_is_in_camera_bounds(t_camera *cam, t_camera_range range)
+{
+	return (pixel_is_in_camera_bounds(cam, range.start) && pixel_is_in_camera_bounds(cam, range.end));
+}
+
+static void	calculate_candidate_bounds_in_screen(t_camera *cam, t_collision_candidate *candidate)
+{
+	size_t	i;
+	t_camera_range	segment_range;
+	t_camera_range	collider_range;
+	
+	collider_range.end = -1;
+	collider_range.start = cam->res_x + 1;
+
+	i = 0;
+	while (i < candidate->col->segment_count)
+	{
+		segment_range = get_segment_range(cam, candidate->col->segments[i], candidate->col->pos);
+
+		if (!pixel_is_in_camera_bounds(cam, segment_range.start) && pixel_is_in_camera_bounds(cam, segment_range.end))
+			segment_range.start = 0;
+		else if (pixel_is_in_camera_bounds(cam, segment_range.start) && !pixel_is_in_camera_bounds(cam, segment_range.end))
+			segment_range.end = cam->res_x;
+		if (range_is_in_camera_bounds(cam, segment_range))
+		{
+			if (segment_range.end > collider_range.end)
+				collider_range.end = segment_range.end;
+			if (segment_range.start < collider_range.start) 
+				collider_range.start = segment_range.start;
+		}
+		i++;
+	}
+	if (!range_is_in_camera_bounds(cam, collider_range))
+	{
+		candidate->is_in_screen = 0;
+	}
+	else
+	{
+		candidate->start_pixel = collider_range.start;
+		candidate->end_pixel = collider_range.end;
+	}
 }
 
 void	calculate_candidate_colliders(t_camera *cam, t_world *world)
