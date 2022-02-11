@@ -6,27 +6,27 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:54:34 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/06 12:26:02 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/11 13:33:59 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "graphics.h"
+#include "../../libft/libft.h"
 #include <stdio.h>
 
 void	display_camera_view(t_graphic_environment *ge, t_camera *camera)
 {
-	size_t			i;
-	t_pixpos		pos;
-	unsigned int	color;
+	size_t			y;
+	int				line_length;
+	int				cam_line_length;
 
-	i = 0;
-	while (i < camera->res_x * camera->res_y)
+	line_length = ge->draw_buffer.line_length / 4;
+	cam_line_length = camera->res_x * sizeof(unsigned int);
+	y = 0;
+	while (y < camera->res_y)
 	{
-		pos.x = i % camera->res_x;
-		pos.y = i / camera->res_x;
-		color = camera->draw_buffer[i];
-		ge->draw_buffer.addr[pos.x + pos.y * ge->draw_buffer.line_length / 4] = color;
-		i++;
+		ft_memcpy(&(ge->draw_buffer.addr[y * line_length]), camera->draw_buffer + (y * camera->res_x), cam_line_length);
+		y++;
 	}
 	display_image(ge, &ge->draw_buffer, (t_pixpos){0, 0});
 }

@@ -25,13 +25,13 @@ PROJECT_ADVISOR = "Bonsai	|"
 ECHO = echo $(PROJECT_ADVISOR)
 PWD = $(shell pwd)
 
-MLX_ARGS = -framework OpenGL -framework AppKit -L minilibx_mms_20200219 -lmlx
-MLX_INCLUDE = -I minilibx_mms_20200219
+MLX_ARGS = -framework OpenGL -framework AppKit -L minilibx_opengl_20191021
+MLX_INCLUDE = -I minilibx_opengl_20191021
 
 LIBFT = libft/libftprintf.a
 
-CC = gcc -O3 #-g -fsanitize=address 
-COMP_FLAGS = -Wall -Wextra -Werror -pthread
+CC = gcc -O3 #-g -fsanitize=address -O0
+COMP_FLAGS = -Wall -Wextra -Werror -pthread -lm -lz
 COMPILER = $(CC) $(COMP_FLAGS)
 
 .PHONY: clean fclean re dirs cleantests test_folder retest_folder update_tags
@@ -42,15 +42,12 @@ $(BUILD_PREF)%.o:$(SOURCE_PREF)%.c
 
 $(TEST_PREF)%.test:$(TEST_PREF)%.c
 	@$(ECHO) building $<
-	@$(COMPILER) -o $@ $< $(OBJ_FILES) $(LIBFT) $(MLX_ARGS) -headerpad_max_install_names
+	@$(COMPILER) -o $@ $< $(OBJ_FILES) $(LIBFT) $(MLX_ARGS) -headerpad_max_install_names minilibx_opengl_20191021/libmlx.a
+
 	@install_name_tool -add_rpath $(PWD)/minilibx_mms_20200219 $@
 	@install_name_tool -change libmlx.dylib @rpath/libmlx.dylib $@
 
 all: libft dirs $(NAME)
-	@$(ECHO) Compiling renderer
-	$(COMPILER) -o $(NAME) $(MAIN) $(OBJ_FILES) $(LIBFT) $(MLX_ARGS)
-
-	@$(ECHO) Compilation Succesful
 
 dirs:
 	@$(ECHO) Creating Directories
@@ -58,7 +55,10 @@ dirs:
 	@mkdir -p $(BUILD_DIRS) 
 
 $(NAME): $(OBJ_FILES)
-	$(COMPILER) $(MAIN) -o $(NAME) $(OBJ_FILES) $(LIBFT) $(MLX_ARGS)
+	@$(ECHO) Compiling renderer
+	$(COMPILER) -o $(NAME) $(MAIN) $(OBJ_FILES) $(LIBFT) $(MLX_ARGS) minilibx_opengl_20191021/libmlx.a
+
+	@$(ECHO) Compilation Succesful
 
 libft:
 	$(MAKE) libft

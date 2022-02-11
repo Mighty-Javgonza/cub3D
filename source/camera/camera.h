@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/08 19:43:42 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/11 11:24:07 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,6 @@ void	destroy_camera(t_camera *cam);
 int	camera_point_to_camera_pixel(t_camera *cam, t_vector point);
 
 void	decide_candidates_of_pixel(t_camera *cam, size_t pixel);
+
+t_wall_slice_interpolator	interpolator_from_collisions(t_collision start_col, t_collision end_col, size_t start_pixel, t_camera *cam, size_t group_size);
 #endif

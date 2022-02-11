@@ -6,14 +6,14 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 17:05:48 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/10 14:24:55 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/11 13:54:11 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PLAYER_H
 # define PLAYER_H
-# define DEFAULT_PLAYER_SPEED 0.1
-# define DEFAULT_PLAYER_ROTATION_SPEED 0.03
+# define DEFAULT_PLAYER_SPEED 0.05
+# define DEFAULT_PLAYER_ROTATION_SPEED 0.015
 
 #include "../camera/camera.h"
 #include "../mac_keys.h"

@@ -38,7 +38,7 @@ IMPLEMENTATION = -D $(MLX_DEFINITION)
 
 #----Compiler definition----#
 LFLAG = -include libft.h -include type_defs.h
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror -O3
 CCOMP = gcc
 COMPILER = $(CCOMP) $(LFLAG) $(CFLAGS) $(IMPLEMENTATION) 
 

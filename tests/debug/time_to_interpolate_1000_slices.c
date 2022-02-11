@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zz_temp_test.c                                     :+:      :+:    :+:   */
+/*   time_to_interpolate_100_slices.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 16:29:58 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/11 11:11:22 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/11 10:54:15 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/11 11:13:22 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
-#include "../../libft/libft.h"
 #include <stdio.h>
 #include <sys/time.h>
-#include <mlx.h>
-
-static void	render_frame(t_graphic_environment *ge, t_world *w)
-{
-	ft_memset(w->player.cam.draw_buffer, 0x0, 1920 * 1080 * 4);
-	camera_render_image(&w->player.cam, w);
-	display_camera_view(ge, &w->player.cam);
-}
 
 static void	compute_and_display_time_difference(struct timeval before, struct timeval after)
 {
@@ -40,33 +31,18 @@ static void	compute_and_display_time_difference(struct timeval before, struct ti
 
 int	main()
 {
-	t_graphic_environment	ge;
-	t_graphic_image			**images;
-	t_world					w;
+	t_wall_slice_painter	slice1;
+	t_wall_slice_painter	slice2;
 
-	ge = init_graphic_environment((t_pixpos){1920, 1080});
-
-	w = init_world();
-	w.player.cam.res_x = 1920;
-	w.player.cam.res_y = 1080;
-	restart_draw_buffer(&w.player.cam);
-
-	add_wall(&w, (t_vector){5, 2});
-	add_wall(&w, (t_vector){4, 3});
-	add_wall(&w, (t_vector){3, 5});
-	add_wall(&w, (t_vector){7, 8});
-	images = malloc(sizeof(*images) * 4);
-	create_default_textures(images, &ge);
-	assign_default_textures(&w, images);
-	assign_parent_to_colliders(&w);
+	slice1 = (t_wall_slice_painter){10, 10, 10, 40, 6, 30};
+	slice2 = (t_wall_slice_painter){8, 8, 12, 36, 7, 40};
 
 	struct timeval	before;	
 	struct timeval	after;	
 
 	gettimeofday(&before, NULL);
-	for (int i = 0; i < 10; i++)
-		render_frame(&ge, &w);
+	for (int i = 0; i < 1920; i++)
+		interpolate_slice(slice1, slice2, 1920, i);
 	gettimeofday(&after, NULL);
-
 	compute_and_display_time_difference(before, after);
 }
