@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 16:57:03 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/04 17:27:43 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/15 13:05:43 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,4 @@ void	set_graphic_image_resolution(t_graphic_image *img, t_graphic_environment *g
 		free(img->mlx_image);
 	img->mlx_image = mlx_new_image(ge->mlx, res.x, res.y);
 	img->addr = (void *)mlx_get_data_addr(img->mlx_image, &bpp, &img->line_length, &endian);
-printf("%d\n", img->line_length);
 }

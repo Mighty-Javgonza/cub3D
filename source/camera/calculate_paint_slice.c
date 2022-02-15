@@ -6,11 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 11:07:52 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/07 15:40:55 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/13 13:11:48 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
+#include <stdio.h>
 #include "../textures/textures.h"
 
 t_wall_slice_painter	calculate_paint_slice(t_camera *cam, t_collision col)

@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:13:17 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/10 16:32:34 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/15 12:59:19 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	world_shaper(t_world *world, t_map *map)
 	int		y;
 	char	c;
 
+	world->floor_color = map->floor_color;
+	world->ceiling_color = map->ceiling_color;
 	map_line = map->world_buffer;
 	y = 0;
 	while (map_line != NULL)

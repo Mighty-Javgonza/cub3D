@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 16:34:20 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/08 13:35:05 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/15 11:59:10 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 
 typedef struct s_world
 {
-	t_wall		*walls;
-	size_t		wall_count;
-	t_player	player;
+	t_wall			*walls;
+	size_t			wall_count;
+	t_player		player;
+	unsigned int	floor_color;
+	unsigned int	ceiling_color;
 }				t_world;
 
 

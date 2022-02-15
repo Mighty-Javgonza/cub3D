@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/11 11:24:07 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/13 17:33:59 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,14 @@ typedef struct s_wall_slice_interpolator
 	t_wall_slice_painter	start;
 	t_wall_slice_painter	end;
 	size_t					step_count;
+	int						can_be_painted;
 }				t_wall_slice_interpolator;
 
+typedef struct	s_camera_range
+{
+	int	start;
+	int	end;
+}				t_camera_range;
 
 t_camera	init_camera();
 
@@ -95,4 +101,22 @@ int	camera_point_to_camera_pixel(t_camera *cam, t_vector point);
 void	decide_candidates_of_pixel(t_camera *cam, size_t pixel);
 
 t_wall_slice_interpolator	interpolator_from_collisions(t_collision start_col, t_collision end_col, size_t start_pixel, t_camera *cam, size_t group_size);
+
+void	camera_render_candidate(t_camera *cam, size_t candidate_index);
+void	paint_interpolated_slices(t_camera *cam, t_wall_slice_interpolator interpolator, t_graphic_image *texture);
+
+t_camera_range	get_segment_range(t_camera *cam, t_segment segment, t_vector pos);
+void	camera_render_candidate_segment(t_camera *cam, t_collision_candidate *candidate, size_t segment_index);
+
+t_collision	collision_from_camera_pixel_with_segment(t_camera *cam, size_t pixel, t_segment *segment);
+
+t_wall_slice_interpolator	camera_get_interpolator_from_segment(t_camera *cam, t_collision_candidate *candidate, size_t segment_index);
+
+int	pixel_is_in_camera_bounds(t_camera *cam, int pixel);
+
+void	camera_render_all_candidates(t_camera *camera);
+
+t_collision	collision_from_camera_pixel_with_candidate(t_camera *camera, size_t candidate_index, size_t pixel);
+
+void	clear_camera_buffer(t_camera *cam, t_world *world);
 #endif

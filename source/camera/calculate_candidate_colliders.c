@@ -6,19 +6,13 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 17:11:53 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/11 12:46:04 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/13 13:01:31 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
 #include <stdio.h>
 #include "../world/world.h"
-
-typedef struct	s_camera_range
-{
-	int	start;
-	int	end;
-}				t_camera_range;
 
 static void	allocate_candidate_colliders(t_camera *cam, t_world *world)
 {
@@ -50,38 +44,6 @@ static void	determine_if_candidate_is_in_screen(t_camera *cam, t_collision_candi
 		candidate->is_in_screen = 1;
 	else
 		candidate->is_in_screen = 0;
-}
-
-static int	pixel_is_in_camera_bounds(t_camera *cam, int pixel)
-{
-	if (pixel < 0 || pixel > (int)cam->res_x)
-		return (0);
-	return (1);
-}
-
-static t_camera_range	get_segment_range(t_camera *cam, t_segment segment, t_vector pos)
-{
-	t_segment		segment_as_seen_from_camera;
-	t_camera_range	range;
-	int				start_pixel;
-	int				end_pixel;
-
-	segment_as_seen_from_camera = segment;
-	segment_as_seen_from_camera = add_segment_vector(segment_as_seen_from_camera, pos);
-	segment_as_seen_from_camera = sub_segment_vector_vfirst(segment_as_seen_from_camera, cam->pos);
-	start_pixel = camera_point_to_camera_pixel(cam, segment_as_seen_from_camera.p1);
-	end_pixel = camera_point_to_camera_pixel(cam, segment_as_seen_from_camera.p2);
-	if (start_pixel > end_pixel)
-	{
-		range.start = end_pixel;
-		range.end = start_pixel;
-	}
-	else
-	{
-		range.start = start_pixel;
-		range.end = end_pixel;
-	}
-	return (range);
 }
 
 static int	range_is_in_camera_bounds(t_camera *cam, t_camera_range range)

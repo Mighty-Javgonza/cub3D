@@ -6,11 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:34:51 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/04 18:16:15 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/13 12:34:15 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
+#include <stdio.h>
 
 t_ray_collider	camera_pixel_to_ray(t_camera *cam, size_t index)
 {

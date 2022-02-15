@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/10 16:42:51 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/15 13:39:17 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	reshape(void *ignored)
 {
 	(void)ignored;
 
-	ft_memset(world.player.cam.draw_buffer, 0x0, world.player.cam.res_x * world.player.cam.res_y * 4);
+	clear_camera_buffer(&world.player.cam, &world);
 	camera_render_image(&world.player.cam, &world);
 	player_update_movement(&world.player);
 	display_camera_view(&ge, &world.player.cam);
@@ -39,23 +39,12 @@ int main()
 	ge = init_graphic_environment((t_pixpos){1920, 1080});
 
 	map = init_map("maps/big_chungus");
-
-	char	*texture_line;
-
-	open_map(&map);
-	get_next_line(map.fd, &texture_line);
-	parse_texture(&map, &ge, texture_line);
-	get_next_line(map.fd, &texture_line);
-	parse_texture(&map, &ge, texture_line);
-	get_next_line(map.fd, &texture_line);
-	parse_texture(&map, &ge, texture_line);
-	get_next_line(map.fd, &texture_line);
-	parse_texture(&map, &ge, texture_line);
+	parse_map(&map, &ge);
 
 	world = init_world();
 
-	parse_world_lines(&map);
 	world_shaper(&world, &map);
+	destroy_map(&map);
 
 	assign_parent_to_colliders(&world);
 

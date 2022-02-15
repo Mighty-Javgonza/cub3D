@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 11:21:37 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/11 11:23:55 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/13 13:09:10 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,21 @@ t_wall_slice_interpolator	interpolator_from_collisions(t_collision start_col, t_
 {
 	t_wall_slice_interpolator	interpolator;
 
+	interpolator.can_be_painted = 1;
 	if (start_col.exists)
 	{
 		cam->current_render_x_pixel = start_pixel;
 		interpolator.start = calculate_paint_slice(cam, start_col);
 	}
+	else
+		interpolator.can_be_painted = 0;
 	if (end_col.exists)
 	{
 		cam->current_render_x_pixel = start_pixel + group_size;
 		interpolator.end = calculate_paint_slice(cam, end_col);
 	}
+	else
+		interpolator.can_be_painted = 0;
 	interpolator.step_count = group_size;
 	return (interpolator);
 }

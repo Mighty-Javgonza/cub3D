@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 15:23:37 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/10 16:02:40 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/15 13:34:19 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ typedef struct s_map
 	char			*path;
 	int				fd;
 	unsigned int	valid:1;
+	unsigned int	floor_color;
+	unsigned int	ceiling_color;
 	t_graphic_image	textures[4];
 }				t_map;
-
 
 t_map	init_map(char *path);
 void	open_map(t_map *map);
@@ -55,4 +56,11 @@ int	closed_map(t_map *map);
 void	parse_texture(t_map *map, t_graphic_environment *ge, char *texture_line);
 
 void	world_shaper(t_world *world, t_map *map);
+
+t_color	cub_load_color(char *str);
+void	parse_color(t_map *map, char *color_line);
+
+void	parse_map(t_map *map, t_graphic_environment *ge);
+
+void	destroy_map(t_map *map);
 #endif

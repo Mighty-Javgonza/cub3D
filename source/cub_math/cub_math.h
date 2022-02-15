@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:20:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/08 19:48:47 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/13 14:55:55 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,12 @@ int	int_is_in_range(int bound1, int bound2, int value);
 t_segment	sub_segment_vector(t_segment s, t_vector v);
 
 t_segment	sub_segment_vector_vfirst(t_segment s, t_vector v);
+
+float	distance_to_closest_segment_end(t_segment segment, t_vector pos);
+
+size_t	*sort_float_array(float *values, size_t array_length);
+
+void	swap_size_t(size_t *first, size_t *second);
+
+int	cub_atoi(char *str);
 #endif

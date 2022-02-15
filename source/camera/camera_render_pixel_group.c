@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 11:14:45 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/11 13:46:50 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/13 11:18:24 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,6 @@ static int		collisions_hit_same_target(t_collision col1, t_collision col2)
 	return (col1.exists && col2.exists && col1.target == col2.target && col1.target_id == col2.target_id);
 }
 
-static void	paint_interpolated_slices(t_camera *cam, t_wall_slice_interpolator interpolator, t_graphic_image *texture)
-{
-	size_t					i;
-	t_wall_slice_painter	slice;
-
-	i = 1;
-	while (i < interpolator.step_count)
-	{
-		cam->current_render_x_pixel++;
-		slice = interpolate_slice(interpolator.start, interpolator.end, interpolator.step_count, i);
-		paint_wall_slice(cam, slice, texture);
-		i++;
-	}
-}
 
 static void	render_all_pixels_in_group(t_camera *cam, t_world *world, size_t group_size)
 {

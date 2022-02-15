@@ -31,7 +31,7 @@ MLX_INCLUDE = -I minilibx_opengl_20191021
 LIBFT = libft/libftprintf.a
 
 CC = gcc -O3 #-g -fsanitize=address -O0
-COMP_FLAGS = -Wall -Wextra -Werror -pthread -lm -lz
+COMP_FLAGS = -Wall -Wextra -Werror -pthread
 COMPILER = $(CC) $(COMP_FLAGS)
 
 .PHONY: clean fclean re dirs cleantests test_folder retest_folder update_tags
@@ -42,7 +42,7 @@ $(BUILD_PREF)%.o:$(SOURCE_PREF)%.c
 
 $(TEST_PREF)%.test:$(TEST_PREF)%.c
 	@$(ECHO) building $<
-	@$(COMPILER) -o $@ $< $(OBJ_FILES) $(LIBFT) $(MLX_ARGS) -headerpad_max_install_names minilibx_opengl_20191021/libmlx.a
+	@$(COMPILER) -o $@ $< $(OBJ_FILES) $(LIBFT) $(MLX_ARGS) -headerpad_max_install_names minilibx_opengl_20191021/libmlx.a -lm -lz
 
 	@install_name_tool -add_rpath $(PWD)/minilibx_mms_20200219 $@
 	@install_name_tool -change libmlx.dylib @rpath/libmlx.dylib $@
@@ -56,7 +56,7 @@ dirs:
 
 $(NAME): $(OBJ_FILES)
 	@$(ECHO) Compiling renderer
-	$(COMPILER) -o $(NAME) $(MAIN) $(OBJ_FILES) $(LIBFT) $(MLX_ARGS) minilibx_opengl_20191021/libmlx.a
+	$(COMPILER) -o $(NAME) $(MAIN) $(OBJ_FILES) $(LIBFT) $(MLX_ARGS) minilibx_opengl_20191021/libmlx.a -lm -lz
 
 	@$(ECHO) Compilation Succesful
 
