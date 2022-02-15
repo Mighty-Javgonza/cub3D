@@ -6,11 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 11:20:12 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/06 18:30:15 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/15 14:59:32 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bound_collider.h"
+#include "../error/error.h"
 
 t_bound_collider	init_bound_collider(size_t segment_count)
 {
@@ -23,6 +24,6 @@ t_bound_collider	init_bound_collider(size_t segment_count)
 	bc.z_axis_height = 1;
 	bc.z_axis_pos = 0;
 	if (!bc.segments)
-		exit(-1); // .TODO Hacer funcion que ponga mensaje de error y salga 
+		exit_and_message("Couldn't allocate segment\n");
 	return (bc);
 }

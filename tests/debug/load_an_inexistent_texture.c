@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zz_temp_test.c                                     :+:      :+:    :+:   */
+/*   load_an_inexistent_texture.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 15:23:37 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/15 16:01:54 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/15 14:41:40 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/15 14:47:36 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,11 @@
 
 int	main()
 {
-	if (!validate_color("0,0,0"))
-		return (-1);
-	if (validate_color("3,-10,255"))
-		return (-1);
-	if (!validate_color("255,255,255"))
-		return (-1);
-	if (validate_color("hola,caracola,0"))
-		return (-1);
-	if (validate_color("0,0,0,14"))
-		return (-1);
+	t_map					map;
+	t_graphic_environment	ge;
+
+	map = init_map("");
+	ge = init_graphic_environment((t_pixpos){100, 100});
+	parse_texture(&map, &ge, "NO sadffdsasfda");
 	return (0);
 }

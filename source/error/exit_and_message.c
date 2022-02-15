@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zz_temp_test.c                                     :+:      :+:    :+:   */
+/*   exit_and_message.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 15:23:37 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/15 16:01:54 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/15 14:50:53 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/15 15:24:06 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../tests.h"
-#include <stdio.h>
+#include "error.h"
+#include "../../libft/libft.h"
+#include <unistd.h>
+#define ERROR_OCURRED "An error has ocurred\n"
 
-int	main()
+void	exit_and_message(char *message)
 {
-	if (!validate_color("0,0,0"))
-		return (-1);
-	if (validate_color("3,-10,255"))
-		return (-1);
-	if (!validate_color("255,255,255"))
-		return (-1);
-	if (validate_color("hola,caracola,0"))
-		return (-1);
-	if (validate_color("0,0,0,14"))
-		return (-1);
-	return (0);
+	write(STDOUT_FILENO, message, ft_strlen(message));
+	exit(-1);
 }

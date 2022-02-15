@@ -6,11 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:28:45 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/08 16:37:14 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/15 18:44:37 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
+#include <stdio.h>
 
 int	validate_world_line(char *line)
 {

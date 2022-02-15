@@ -6,13 +6,14 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 17:11:53 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/13 13:01:31 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/15 15:22:33 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
 #include <stdio.h>
 #include "../world/world.h"
+#include "../error/error.h"
 
 static void	allocate_candidate_colliders(t_camera *cam, t_world *world)
 {
@@ -22,7 +23,7 @@ static void	allocate_candidate_colliders(t_camera *cam, t_world *world)
 	cam->collision_candidates = malloc(sizeof(*cam->collision_candidates) * world->wall_count);
 	cam->collision_candidates_count = world->wall_count;
 	if (cam->collision_candidates == NULL)
-		exit(1); //TODO: mensajito error
+		exit_and_message("Couldn't allocate candidates\n");
 	i = 0;
 	while (i < world->wall_count)
 	{

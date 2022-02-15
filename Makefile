@@ -1,4 +1,4 @@
-NAME = graphic
+NAME = cub3D
 
 SOURCE_PREF =source/
 BUILD_PREF =build/
@@ -54,7 +54,7 @@ dirs:
 	@$(ECHO) $(BUILD_DIRS)
 	@mkdir -p $(BUILD_DIRS) 
 
-$(NAME): $(OBJ_FILES)
+$(NAME): $(OBJ_FILES) $(MAIN)
 	@$(ECHO) Compiling renderer
 	$(COMPILER) -o $(NAME) $(MAIN) $(OBJ_FILES) $(LIBFT) $(MLX_ARGS) minilibx_opengl_20191021/libmlx.a -lm -lz
 

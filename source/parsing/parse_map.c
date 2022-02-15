@@ -6,11 +6,26 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 13:08:36 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/15 13:29:35 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/15 18:47:01 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
+#include "../error/error.h"
+
+static int	all_textures_parsed(t_map *map)
+{
+	int	i;
+
+	i = 0;
+	while (i < 4)
+	{
+		if (map->parsed_textures[i] == 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 void	parse_map(t_map *map, t_graphic_environment *ge)
 {
@@ -19,6 +34,8 @@ void	parse_map(t_map *map, t_graphic_environment *ge)
 
 	i = 0;
 	open_map(map);
+	if (!map->valid)
+		exit_and_message("Couldn't open map\n");
 	while (i < 4)
 	{
 		get_next_line(map->fd, &line);
@@ -32,6 +49,8 @@ void	parse_map(t_map *map, t_graphic_environment *ge)
 		i++;
 	}
 	i = 0;
+	if (all_textures_parsed(map) == 0)
+		exit_and_message("Error on textures\n");
 	while (i < 2)
 	{
 		get_next_line(map->fd, &line);

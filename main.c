@@ -1,22 +1,55 @@
-#include "libft/libft.h"
-#define SCREEN_WIDTH 500
-#define SCREEN_HEIGHT 500
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/15 16:30:32 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/15 18:07:41 by javgonza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static void	draw(t_gbuff *gbuff)
+#include "source/all_headers.h"
+#include <mlx.h>
+
+static int	update(t_global_environment *gb)
 {
-	(void)gbuff;
+	clear_camera_buffer(&gb->world->player.cam, gb->world);
+	camera_render_image(&gb->world->player.cam, gb->world);
+	player_update_movement(&gb->world->player);
+	display_camera_view(gb->ge, &gb->world->player.cam);
+	return (0);
 }
 
-int main()
+static void	init_basic_parameters(t_world *world, t_graphic_environment *ge, char *map_name)
 {
-	t_gserver	gserver;
-	t_gwindow	gwin;
-	t_gbuff		gbuff;
+	t_map			map;
 
-	gserver = ft_create_gserver();
-	gwin = ft_create_window(SCREEN_WIDTH, SCREEN_WIDTH, "BONSAI", &gserver);
-	gbuff = ft_create_gbuff(SCREEN_WIDTH, SCREEN_HEIGHT, &gserver);
-	draw(&gbuff);
-	ft_display_buff(&gbuff, &gwin);
-	ft_gserver_begin_loop(&gserver);
+	*world = init_world();
+	*ge = init_graphic_environment((t_pixpos){1920, 1080});
+	map = init_map(map_name);
+	parse_map(&map, ge);
+	world_shaper(world, &map);
+	destroy_map(&map);
+	assign_parent_to_colliders(world);
+	assign_default_textures(world, world->wall_textures);
+}
+
+int main(int argc, char **argv)
+{
+	t_graphic_environment	ge;
+	t_world					world;
+	t_global_environment	gb;
+
+	if (argc != 2)
+		exit_and_message("Insert a map pls or delete maps, one at a time\n");
+	init_basic_parameters(&world, &ge, argv[1]);
+	gb.ge = &ge;
+	gb.world = &world;
+	hook_controls(&gb);
+	hook_events(&gb);
+	mlx_loop_hook(ge.mlx, update, &gb);
+	mlx_loop(ge.mlx);
+	return (0);
 }

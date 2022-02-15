@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 16:34:20 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/15 11:59:10 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/15 16:52:34 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_world
 	t_player		player;
 	unsigned int	floor_color;
 	unsigned int	ceiling_color;
+	t_graphic_image	**wall_textures;
 }				t_world;
 
 

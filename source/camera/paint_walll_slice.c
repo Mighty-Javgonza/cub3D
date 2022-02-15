@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 11:39:18 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/13 17:16:08 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/15 18:19:42 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,15 @@ static unsigned int	get_y_pixel_color(t_wall_slice_painter slice, int paint_offs
 	int				image_row;
 
 	image_row = get_row_in_image(slice, paint_offset, image);
-	if (slice.column_in_image < 0 || slice.column_in_image >= (int)image->res.x || image_row < 0 || image_row >= (int)image->res.y)
-		color = 0xFF0000; 
-	else
-		color = image->addr[slice.column_in_image + image_row * image->line_length / 4];
+	if (slice.column_in_image < 0)
+		slice.column_in_image = 0;
+	if (slice.column_in_image >= (int)image->res.x)
+		slice.column_in_image = image->res.x;
+	if (image_row < 0)
+		image_row = 0;
+	if (image_row >= (int)image->res.y)
+		image_row = image->res.y;
+	color = image->addr[slice.column_in_image + image_row * image->line_length / 4];
 	return (color);
 }
 

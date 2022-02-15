@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:32:16 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/11 17:28:29 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/15 14:56:26 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # include "textures/collider_texturizer/collider_texturizer.h"
 # include "parsing/parsing.h"
 # include "wall/door/door.h"
+# include "error/error.h"
 
 
 

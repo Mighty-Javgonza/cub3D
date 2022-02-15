@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 15:23:37 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/15 13:34:19 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/15 18:52:11 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 
 # define MAP_PLAYER_DIRECTIONS "NSEW"
 # define MAP_WALLS "10"
-# define VALID_MAP_CHARS MAP_PLAYER_DIRECTIONS MAP_WALLS
+# define VALID_MAP_CHARS MAP_PLAYER_DIRECTIONS MAP_WALLS " "
 # define VALID_NEIGHBOURS "01" MAP_PLAYER_DIRECTIONS
 
-# define NORTH_TEXTURE 0 
+# define NORTH_TEXTURE 3 
 # define SOUTH_TEXTURE 1
 # define EAST_TEXTURE 2
-# define WEST_TEXTURE 3
+# define WEST_TEXTURE 0
 
 typedef struct s_map
 {
@@ -35,6 +35,7 @@ typedef struct s_map
 	unsigned int	floor_color;
 	unsigned int	ceiling_color;
 	t_graphic_image	textures[4];
+	unsigned int	parsed_textures[4];
 }				t_map;
 
 t_map	init_map(char *path);
@@ -63,4 +64,7 @@ void	parse_color(t_map *map, char *color_line);
 void	parse_map(t_map *map, t_graphic_environment *ge);
 
 void	destroy_map(t_map *map);
+
+
+int	validate_color(char *color);
 #endif

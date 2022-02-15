@@ -6,13 +6,14 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 11:06:37 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/13 15:46:54 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/15 15:23:02 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
 #include <stdio.h>
 #include "../textures/textures.h"
+#include "../error/error.h"
 
 static void	render_segments_farthest_to_closest(t_camera *cam, t_collision_candidate *candidate, float *distances)
 {
@@ -45,7 +46,7 @@ void	camera_render_candidate(t_camera *cam, size_t candidate_index)
 	segment_count = candidate->col->segment_count;
 	dist_to_segments = malloc(sizeof(*dist_to_segments) * segment_count);
 	if (dist_to_segments == NULL)
-		exit(1); //TODO: mensajito de error
+		exit_and_message("Couldn't allocate distance to segments\n");
 	i = 0;
 	while (i < segment_count)
 	{
