@@ -14,5 +14,5 @@
 
 void	player_move_up_z(t_player *player)
 {
-	player->cam.z_axis_pos += player->speed;;
+	player->cam.z_axis_pos += player->speed;
 }

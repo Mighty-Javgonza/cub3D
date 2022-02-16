@@ -12,7 +12,7 @@
 
 #include "cub_math.h"
 
-t_vector	init_vector()
+t_vector	init_vector(void)
 {
 	t_vector	rvalue;
 

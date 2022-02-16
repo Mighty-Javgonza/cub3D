@@ -12,7 +12,7 @@
 
 #include "wall.h"
 
-t_wall	init_wall()
+t_wall	init_wall(void)
 {
 	t_wall	rvalue;
 

@@ -16,14 +16,14 @@ void	player_update_movement(t_player *player)
 {
 	if (player->move_right == 1)
 		player_move_right(player);
-	 if (player->move_left == 1)
+	if (player->move_left == 1)
 		player_move_left(player);
-	 if (player->move_forwards == 1)
+	if (player->move_forwards == 1)
 		player_move_up(player);
-	 if (player->move_backwards == 1)
+	if (player->move_backwards == 1)
 		player_move_down(player);
-	 if (player->rotate_right == 1)
+	if (player->rotate_right == 1)
 		player_rotate_right(player);
-	 if (player->rotate_left == 1)
+	if (player->rotate_left == 1)
 		player_rotate_left(player);
 }

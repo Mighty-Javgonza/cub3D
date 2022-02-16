@@ -38,7 +38,8 @@ void	parse_map(t_map *map, t_graphic_environment *ge)
 		exit_and_message("Couldn't open map\n");
 	while (i < 4)
 	{
-		get_next_line(map->fd, &line);
+		if (get_next_line(map->fd, &line) == 0)
+			exit_and_message("Empy map\n");
 		if (ft_strlen(line) == 0)
 		{
 			free(line);

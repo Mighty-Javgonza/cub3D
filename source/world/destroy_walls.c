@@ -14,7 +14,7 @@
 
 void	destroy_walls(t_world *world)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < world->wall_count)

@@ -14,7 +14,7 @@
 
 void	paint_miniplayer_vision_cone(t_minimap *mp)
 {
-	size_t	i;
+	size_t			i;
 	t_ray_collider	rc;
 	t_collision		col;
 	t_segment		ray_to_col;

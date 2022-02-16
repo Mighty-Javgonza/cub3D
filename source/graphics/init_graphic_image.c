@@ -12,7 +12,7 @@
 
 #include "graphics.h"
 
-t_graphic_image	init_graphic_image()
+t_graphic_image	init_graphic_image(void)
 {
 	t_graphic_image	rvalue;
 

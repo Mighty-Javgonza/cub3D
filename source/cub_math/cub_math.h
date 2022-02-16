@@ -54,9 +54,9 @@ typedef struct s_segment_segment_collider
 	t_vector		collision_point;
 }				t_segment_segment_collider;
 
-t_vector	init_vector();
-t_segment	init_segment();
-t_segment_segment_collider	init_segment_segment_collider();
+t_vector	init_vector(void);
+t_segment	init_segment(void);
+t_segment_segment_collider	init_segment_segment_collider(void);
 void	calculate_segment_segment_collision(t_segment_segment_collider *col);
 void	calculate_segment_segment_collision_factors(t_segment_segment_collider *col);
 void	segment_segment_collider_decide_collision(t_segment_segment_collider *col);

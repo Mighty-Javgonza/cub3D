@@ -25,7 +25,8 @@ void	display_camera_view(t_graphic_environment *ge, t_camera *camera)
 	y = 0;
 	while (y < camera->res_y)
 	{
-		ft_memcpy(&(ge->draw_buffer.addr[y * line_length]), camera->draw_buffer + (y * camera->res_x), cam_line_length);
+		ft_memcpy(&(ge->draw_buffer.addr[y * line_length]),
+			camera->draw_buffer + (y * camera->res_x), cam_line_length);
 		y++;
 	}
 	display_image(ge, &ge->draw_buffer, (t_pixpos){0, 0});

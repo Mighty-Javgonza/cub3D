@@ -12,7 +12,7 @@
 
 #include "door.h"
 
-t_linear_door	init_linear_door()
+t_linear_door	init_linear_door(void)
 {
 	t_linear_door	rvalue;
 

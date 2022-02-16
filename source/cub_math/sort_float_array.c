@@ -14,12 +14,14 @@
 #include <stdio.h>
 #include "../error/error.h"
 
-static void	initialize_ordered_indices(size_t *ordered_indices, size_t array_length)
+static void	initialize_ordered_indices(size_t *ordered_indices,
+	size_t array_length)
 {
 	size_t	i;
+
 	i = 0;
 	while (i < array_length)
-	{	
+	{
 		ordered_indices[i] = i;
 		i++;
 	}

@@ -12,9 +12,9 @@
 
 #include "world.h"
 
-void assign_parent_to_colliders(t_world *w)
+void	assign_parent_to_colliders(t_world *w)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < w->wall_count)

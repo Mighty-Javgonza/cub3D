@@ -13,7 +13,7 @@
 #include "cub_math.h"
 #include <stdlib.h>
 
-t_segment_segment_collider	init_segment_segment_collider()
+t_segment_segment_collider	init_segment_segment_collider(void)
 {
 	t_segment_segment_collider	rvalue;
 

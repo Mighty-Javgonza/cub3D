@@ -20,6 +20,8 @@ void	parse_world_lines(t_map *map)
 	char	*line;
 
 	is_valid_line = get_next_line(map->fd, &line);
+	if (is_valid_line == 0)
+		exit_and_message("No map detected\n");
 	while (is_valid_line == 1)
 	{
 		parse_world_line(map, line);

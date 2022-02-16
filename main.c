@@ -6,12 +6,13 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:30:32 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/15 18:07:41 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/16 16:29:56 by robrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "source/all_headers.h"
 #include <mlx.h>
+#include <stdio.h>
 
 static int	update(t_global_environment *gb)
 {

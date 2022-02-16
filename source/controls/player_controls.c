@@ -15,7 +15,6 @@
 
 int	player_controls(int keycode, t_global_environment *global)
 {
-printf("key:%d\n", keycode);
 	if (keycode == MAC_KEY_ESCAPE)
 		close_win(global);
 	else

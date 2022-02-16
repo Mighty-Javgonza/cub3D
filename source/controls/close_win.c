@@ -16,6 +16,7 @@ int	close_win(t_global_environment *global)
 {
 	destroy_graphic_environment(global->ge);
 	destroy_world(global->world);
+	system("leaks cub3D");
 	exit(0);
 	return (0);
 }

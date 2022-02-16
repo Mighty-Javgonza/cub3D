@@ -12,7 +12,7 @@
 
 #include "world.h"
 
-t_world	init_world()
+t_world	init_world(void)
 {
 	t_world	rvalue;
 

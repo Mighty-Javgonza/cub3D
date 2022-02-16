@@ -21,4 +21,3 @@ void	player_move_left(t_player *player)
 	displacement = vector_times_float(perp, -player->speed);
 	player->cam.pos = add_vectors(displacement, player->cam.pos);
 }
-

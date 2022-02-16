@@ -33,7 +33,7 @@ typedef struct s_linear_door
 }				t_linear_door;
 
 
-t_linear_door	init_linear_door();
+t_linear_door	init_linear_door(void);
 
 
 void	start_opening_linear_door(t_linear_door *door);

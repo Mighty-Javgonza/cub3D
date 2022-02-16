@@ -11,9 +11,10 @@
 /* ************************************************************************** */
 
 #include "world.h"
+
 void	assign_default_textures(t_world *w, t_graphic_image **images)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < w->wall_count)

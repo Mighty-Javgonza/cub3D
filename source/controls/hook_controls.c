@@ -17,5 +17,6 @@
 void	hook_controls(t_global_environment *global)
 {
 	mlx_hook(global->ge->win, 2, 0, &player_controls, global);
-	mlx_hook(global->ge->win, 3, 0, &player_movement_release, &global->world->player);
+	mlx_hook(global->ge->win, 3, 0, &player_movement_release,
+		&global->world->player);
 }

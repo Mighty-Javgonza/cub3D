@@ -58,7 +58,7 @@ typedef struct s_minimap
 }				t_minimap;
 
 t_graphic_environment	init_graphic_environment(t_pixpos res);
-t_graphic_image	init_graphic_image();
+t_graphic_image	init_graphic_image(void);
 void	set_graphic_image_resolution(t_graphic_image *img, t_graphic_environment *ge, t_pixpos res);
 t_graphic_image	new_graphic_image(t_graphic_environment *ge, t_pixpos res);
 void	display_image(t_graphic_environment *ge, t_graphic_image *img, t_pixpos p);

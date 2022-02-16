@@ -14,7 +14,7 @@
 
 t_segment	add_segment_vector(t_segment segment, t_vector pos)
 {
-	t_segment result;
+	t_segment	result;
 
 	result.p1 = add_vectors(segment.p1, pos);
 	result.p2 = add_vectors(segment.p2, pos);

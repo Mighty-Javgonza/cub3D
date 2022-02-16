@@ -16,7 +16,7 @@ t_vector	vector_normalize(t_vector v)
 {
 	t_vector	normal;
 	float		vlength;
-	
+
 	vlength = vector_length(v);
 	normal.x = v.x / vlength;
 	normal.y = v.y / vlength;

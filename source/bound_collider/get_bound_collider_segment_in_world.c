@@ -12,7 +12,8 @@
 
 #include "bound_collider.h"
 
-t_segment	get_bound_collider_segment_in_world(t_bound_collider *bc, size_t index)
+t_segment	get_bound_collider_segment_in_world(t_bound_collider *bc,
+	size_t index)
 {
 	t_segment	segment;
 

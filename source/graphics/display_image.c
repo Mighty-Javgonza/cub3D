@@ -14,7 +14,8 @@
 #include <stdio.h>
 #include <mlx.h>
 
-void	display_image(t_graphic_environment *ge, t_graphic_image *img, t_pixpos p)
+void	display_image(t_graphic_environment *ge,
+	t_graphic_image *img, t_pixpos p)
 {
 	mlx_put_image_to_window(ge->mlx, ge->win, img->mlx_image, p.x, p.y);
 }
