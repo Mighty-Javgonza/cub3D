@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 17:11:53 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/15 15:22:33 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:08:04 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 static void	allocate_candidate_colliders(t_camera *cam, t_world *world)
 {
 	size_t	i;
+
 	if (cam->collision_candidates != NULL)
 		free(cam->collision_candidates);
 	cam->collision_candidates = malloc(sizeof(*cam->collision_candidates) * world->wall_count);
@@ -109,5 +110,4 @@ void	calculate_candidate_colliders(t_camera *cam, t_world *world)
 		}
 		i++;
 	}
-//	printf("candidates_in_screen: %zu\n", candidates_in_screen);
 }

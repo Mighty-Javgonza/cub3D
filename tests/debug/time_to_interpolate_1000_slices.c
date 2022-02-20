@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:54:15 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/11 11:13:22 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/16 12:26:12 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	main()
 	t_wall_slice_painter	slice1;
 	t_wall_slice_painter	slice2;
 
-	slice1 = (t_wall_slice_painter){10, 10, 10, 40, 6, 30};
-	slice2 = (t_wall_slice_painter){8, 8, 12, 36, 7, 40};
+	slice1 = (t_wall_slice_painter){10, 10, 10, 40, 6, 30, 30};
+	slice2 = (t_wall_slice_painter){8, 8, 12, 36, 7, 40, 100};
 
 	struct timeval	before;	
 	struct timeval	after;	

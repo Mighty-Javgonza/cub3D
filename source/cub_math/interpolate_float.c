@@ -6,11 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 11:45:41 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/07 12:04:07 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/16 11:42:59 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub_math.h"
+#include <stdio.h>
 
 float	interpolate_float(float min_val, float max_val, size_t step_count, size_t step)
 {

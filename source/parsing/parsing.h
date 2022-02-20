@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 15:23:37 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/15 18:52:11 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/15 19:02:21 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_map
 	unsigned int	valid:1;
 	unsigned int	floor_color;
 	unsigned int	ceiling_color;
+	unsigned int	parsed_colors[2];
 	t_graphic_image	textures[4];
 	unsigned int	parsed_textures[4];
 }				t_map;

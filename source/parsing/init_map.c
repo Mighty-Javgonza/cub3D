@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 15:41:25 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/15 18:23:20 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/15 19:03:34 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_map	init_map(char *path)
 		.valid = 0,
 		.world_buffer = 0,
 	};
-	ft_memset(map.parsed_textures, 0, 4);
+	ft_memset(map.parsed_textures, 0, 4 * sizeof(*map.parsed_textures));
+	ft_memset(map.parsed_colors, 0, 2 * sizeof(*map.parsed_colors));
 	return (map);
 }

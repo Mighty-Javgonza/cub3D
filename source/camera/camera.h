@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/13 17:33:59 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/16 16:31:41 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,15 @@ typedef struct s_wall_slice_painter
 	int		z_end_in_screen;
 	float	dist_to_slice;
 	int		column_in_image;
+	float	image_step;
 }		t_wall_slice_painter;
+
+typedef struct	s_camera_range
+{
+	int	start;
+	int	end;
+}				t_camera_range;
+
 
 typedef struct s_wall_slice_interpolator
 {
@@ -64,13 +72,8 @@ typedef struct s_wall_slice_interpolator
 	t_wall_slice_painter	end;
 	size_t					step_count;
 	int						can_be_painted;
+	t_camera_range			space_in_screen;
 }				t_wall_slice_interpolator;
-
-typedef struct	s_camera_range
-{
-	int	start;
-	int	end;
-}				t_camera_range;
 
 t_camera	init_camera();
 
@@ -83,7 +86,6 @@ void	camera_render_pixel(t_camera *cam, t_world *world, size_t x_pixel);
 t_vector	get_vector_to_plane_from_camera_pixel(t_camera *cam, size_t pixel);
 void	calculate_distances_to_plane(t_camera *c);
 int	get_column_in_image(t_collision col, t_graphic_image *image);
-int	get_row_in_image(t_wall_slice_painter slice, int paint_offset, t_graphic_image *image);
 void	calculate_slice_z_offset(t_wall_slice_painter *slice, t_camera *cam, t_collision col);
 t_wall_slice_painter	calculate_paint_slice(t_camera *cam, t_collision col);
 void	paint_wall_slice(t_camera *cam, t_wall_slice_painter slice, t_graphic_image *texture);
@@ -119,4 +121,6 @@ void	camera_render_all_candidates(t_camera *camera);
 t_collision	collision_from_camera_pixel_with_candidate(t_camera *camera, size_t candidate_index, size_t pixel);
 
 void	clear_camera_buffer(t_camera *cam, t_world *world);
+
+int	get_row_in_image(t_wall_slice_painter slice, int paint_offset);
 #endif

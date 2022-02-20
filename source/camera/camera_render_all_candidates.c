@@ -6,11 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 15:40:21 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/13 16:34:26 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/19 19:21:44 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
+#include <stdio.h>
 
 static void	render_candidates_farthest_to_closest(t_camera *camera, float *dists_to_candidates, size_t candidate_count)
 {
@@ -29,7 +30,7 @@ static void	render_candidates_farthest_to_closest(t_camera *camera, float *dists
 
 void	camera_render_all_candidates(t_camera *camera)
 {
-	size_t	i;
+	size_t					i;
 	float					*dists_to_candidates;
 	t_collision_candidate	*candidates;
 	size_t					candidate_count;

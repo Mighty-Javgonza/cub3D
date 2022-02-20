@@ -6,11 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 11:21:37 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/13 13:09:10 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/16 17:45:40 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
+#include <stdio.h>
 
 t_wall_slice_interpolator	interpolator_from_collisions(t_collision start_col, t_collision end_col, size_t start_pixel, t_camera *cam, size_t group_size)
 {
@@ -32,5 +33,7 @@ t_wall_slice_interpolator	interpolator_from_collisions(t_collision start_col, t_
 	else
 		interpolator.can_be_painted = 0;
 	interpolator.step_count = group_size;
+	interpolator.space_in_screen.start = start_pixel;
+	interpolator.space_in_screen.end = start_pixel + group_size;
 	return (interpolator);
 }

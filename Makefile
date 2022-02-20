@@ -44,8 +44,8 @@ $(TEST_PREF)%.test:$(TEST_PREF)%.c
 	@$(ECHO) building $<
 	@$(COMPILER) -o $@ $< $(OBJ_FILES) $(LIBFT) $(MLX_ARGS) -headerpad_max_install_names minilibx_opengl_20191021/libmlx.a -lm -lz
 
-	@install_name_tool -add_rpath $(PWD)/minilibx_mms_20200219 $@
-	@install_name_tool -change libmlx.dylib @rpath/libmlx.dylib $@
+#	@install_name_tool -add_rpath $(PWD)/minilibx_mms_20200219 $@
+#	@install_name_tool -change libmlx.dylib @rpath/libmlx.dylib $@
 
 all: libft dirs $(NAME)
 

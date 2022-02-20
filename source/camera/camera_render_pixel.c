@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 17:49:12 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/13 17:44:38 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/19 19:29:10 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	camera_render_pixel(t_camera *cam, t_world *world, size_t x_pixel)
 
 	ordered_indices = sort_float_array(col_dists, cam->collision_candidates_count);
 	i = cam->collision_candidates_count;
+	if (i > 8)
+		i = 8;
 	while (i > 0)
 	{
 		col = collisions[ordered_indices[i - 1]];
