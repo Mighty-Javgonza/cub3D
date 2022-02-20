@@ -6,11 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 19:01:00 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/16 11:37:39 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:40:42 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
+#include "wall_painter.h"
+#include "../camera.h"
 #include <stdio.h>
 
 void	calculate_slice_z_offset(t_wall_slice_painter *slice, t_camera *cam, t_collision col)

@@ -6,16 +6,14 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 11:39:18 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/19 19:05:34 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:54:48 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
-#include <stdio.h>
+#include "wall_painter.h"
+#include "../camera.h"
 #include <math.h>
-#include <stdio.h>
-
-#include "../graphics/graphics.h"
+#include "../../graphics/graphics.h"
 
 static unsigned int	get_y_pixel_color(t_wall_slice_painter slice, int paint_offset, t_graphic_image *image)
 {

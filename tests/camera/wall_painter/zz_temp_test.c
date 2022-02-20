@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_win.c                                        :+:      :+:    :+:   */
+/*   zz_temp_test                                     :+:      :+:    :+:   */
+
+i
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
+{
+
+}
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 12:49:34 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 12:55:39 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/20 12:20:26 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/20 12:20:26 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "controls.h"
-#include "../world/world.h"
+#include "zsh:1: no matches found: *.h"
 
-int	close_win(t_global_environment *global)
-{
-	destroy_graphic_environment(global->ge);
-	destroy_world(global->world);
-	exit(0);
-	return (0);
-}
+#i

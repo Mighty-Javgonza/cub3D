@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:20:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/13 14:55:55 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:28:15 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,12 @@ typedef struct s_segment_segment_collider
 	t_vector		d2;
 	t_vector		collision_point;
 }				t_segment_segment_collider;
+
+typedef struct s_int_range
+{
+	int	start;
+	int	end;
+}				t_int_range;
 
 t_vector	init_vector();
 t_segment	init_segment();

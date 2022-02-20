@@ -6,12 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 17:42:07 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/06 17:54:25 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:41:21 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
-#include "../graphics/graphics.h"
+#include "wall_painter.h"
+#include "../../graphics/graphics.h"
 
 int	get_column_in_image(t_collision col, t_graphic_image *image)
 {

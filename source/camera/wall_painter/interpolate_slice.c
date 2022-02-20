@@ -6,11 +6,11 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 11:36:13 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/16 11:41:10 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:34:01 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
+#include "wall_painter.h"
 #include <stdio.h>
 
 t_wall_slice_painter	interpolate_slice(t_wall_slice_painter start_slice, t_wall_slice_painter end_slice, size_t max_value, size_t value)

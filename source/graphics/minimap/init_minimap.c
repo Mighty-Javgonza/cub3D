@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_win.c                                        :+:      :+:    :+:   */
+/*   init_minimap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 12:49:34 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 12:55:39 by javgonza         ###   ########.fr       */
+/*   Created: 2022/01/26 18:14:06 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/20 12:58:27 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "controls.h"
-#include "../world/world.h"
+#include "minimap.h"
+#include "../graphics.h"
 
-int	close_win(t_global_environment *global)
+t_minimap	init_minimap(t_graphic_environment *ge, t_world *w)
 {
-	destroy_graphic_environment(global->ge);
-	destroy_world(global->world);
-	exit(0);
-	return (0);
+	t_minimap	rvalue;
+
+	rvalue = (t_minimap)
+	{
+		.ge = ge,
+		.img = new_graphic_image(ge, DEFAULT_MINIMAP_RESOLUTION),
+		.world = w,
+		.draw_pos = DEFAULT_MINIMAP_DRAW_POS,
+		.background = DEFAULT_MINIMAP_BACKGROUND,
+	};
+	return (rvalue);
 }

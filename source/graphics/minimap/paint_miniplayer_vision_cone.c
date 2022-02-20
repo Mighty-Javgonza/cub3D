@@ -6,11 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:43:45 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 19:01:23 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:59:20 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "graphics.h"
+#include "minimap.h"
+#include "../graphics.h"
 
 void	paint_miniplayer_vision_cone(t_minimap *mp)
 {

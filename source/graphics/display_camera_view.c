@@ -6,13 +6,13 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:54:34 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/11 13:33:59 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:57:06 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "graphics.h"
 #include "../../libft/libft.h"
-#include <stdio.h>
+#include "../camera/camera.h"
 
 void	display_camera_view(t_graphic_environment *ge, t_camera *camera)
 {

@@ -6,12 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 12:02:54 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/19 19:20:46 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:41:10 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
-#include <stdio.h>
+#include "wall_painter.h"
+#include "../camera.h"
 
 t_wall_slice_interpolator	camera_get_interpolator_from_segment(t_camera *cam, t_collision_candidate *candidate, size_t segment_index)
 {

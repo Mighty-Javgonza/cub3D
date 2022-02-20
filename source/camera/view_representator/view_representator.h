@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minimap_paint_player.c                             :+:      :+:    :+:   */
+/*   view_representator.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 18:42:21 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 19:16:35 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/20 12:20:14 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/20 12:53:58 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "graphics.h"
+#ifndef VIEW_REPRESENTATOR_H
+# define VIEW_REPRESENTATOR_H
 
-void	minimap_paint_player(t_minimap *mp)
+#include "../../graphics/graphics.h"
+
+typedef struct s_view_representator
 {
-	mp->img.color = 0xff0000;
-	paint_miniplayer(&mp->img, &mp->world->player);
-	mp->img.color = 0x0070b59a;
-	paint_miniplayer_vision_cone(mp);
-}
+	unsigned int	*draw_buffer;
+	t_resolution	res;
+}				t_view_representator;
+
+
+t_view_representator	init_view_representator();
+#endif

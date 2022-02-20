@@ -6,12 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 11:21:37 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/16 17:45:40 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:41:52 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
-#include <stdio.h>
+#include "wall_painter.h"
+#include "../camera.h"
 
 t_wall_slice_interpolator	interpolator_from_collisions(t_collision start_col, t_collision end_col, size_t start_pixel, t_camera *cam, size_t group_size)
 {

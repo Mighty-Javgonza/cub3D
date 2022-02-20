@@ -6,10 +6,11 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 12:45:44 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/25 12:47:55 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:57:22 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../world/world.h"
 #include "graphics.h"
 
 void	paint_world(t_graphic_image *img, t_world *w)

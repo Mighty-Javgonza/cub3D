@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:32:16 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/15 14:56:26 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 13:00:11 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@
 # include "parsing/parsing.h"
 # include "wall/door/door.h"
 # include "error/error.h"
+# include "camera/view_representator/view_representator.h"
+# include "camera/wall_painter/wall_painter.h"
+# include "graphics/minimap/minimap.h"
 
 
 

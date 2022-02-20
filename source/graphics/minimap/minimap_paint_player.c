@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_win.c                                        :+:      :+:    :+:   */
+/*   minimap_paint_player.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 12:49:34 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 12:55:39 by javgonza         ###   ########.fr       */
+/*   Created: 2022/01/26 18:42:21 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/20 12:59:04 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "controls.h"
-#include "../world/world.h"
+#include "minimap.h"
+#include "../graphics.h"
 
-int	close_win(t_global_environment *global)
+void	minimap_paint_player(t_minimap *mp)
 {
-	destroy_graphic_environment(global->ge);
-	destroy_world(global->world);
-	exit(0);
-	return (0);
+	mp->img.color = 0xff0000;
+	paint_miniplayer(&mp->img, &mp->world->player);
+	mp->img.color = 0x0070b59a;
+	paint_miniplayer_vision_cone(mp);
 }
