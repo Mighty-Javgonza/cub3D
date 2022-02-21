@@ -30,7 +30,7 @@ MLX_INCLUDE = -I minilibx_opengl_20191021
 
 LIBFT = libft/libftprintf.a
 
-CC = gcc -g -fsanitize=address -O0
+CC = gcc -O3 #-g -fsanitize=address -O0
 COMP_FLAGS = -Wall -Wextra -Werror -pthread
 COMPILER = $(CC) $(COMP_FLAGS)
 

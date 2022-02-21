@@ -114,4 +114,8 @@ size_t	*sort_float_array(float *values, size_t array_length);
 void	swap_size_t(size_t *first, size_t *second);
 
 int	cub_atoi(char *str);
+
+size_t	min_size_t(size_t a, size_t b);
+
+size_t	max_size_t(size_t a, size_t b);
 #endif

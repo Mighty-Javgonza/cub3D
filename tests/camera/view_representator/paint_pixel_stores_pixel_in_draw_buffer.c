@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   collision_from_camera_pixel_with_segment.          :+:      :+:    :+:   */
+/*   zz_temp_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 12:14:52 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/21 12:31:13 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/20 12:44:32 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/21 14:34:47 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
-#include <stdio.h>
+#include "../../tests.h"
 
-t_collision	collision_from_camera_pixel_with_segment(t_camera *cam, size_t pixel, t_segment *segment)
+int	main()
 {
-	t_ray_collider	rc;
-	t_collision		col;
+	t_view_representator	vr;
+	unsigned int			color;
 
-	rc = camera_pixel_to_ray(cam, pixel);
-	rc.direction = vector_normalize(rc.direction);
-	col = collide_ray_segment(&rc, segment);
-	return (col);
+	vr = init_view_representator();
+	set_view_representator_resolution(&vr, (t_pixpos){10, 10});
+	vr.color = 0xaaFF00;
+	representator_paint_pixel(&vr, (t_pixpos){3, 4});
+	color = representator_get_pixel(&vr, (t_pixpos){3, 4});
+	if (color != 0xaaFF00) 
+		return (-1);
+	return (0);
 }

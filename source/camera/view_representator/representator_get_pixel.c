@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   collision_from_camera_pixel_with_segment.          :+:      :+:    :+:   */
+/*   representator_get_pixel.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 12:14:52 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/21 12:31:13 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/21 13:05:57 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/21 13:13:50 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
-#include <stdio.h>
+#include "view_representator.h"
 
-t_collision	collision_from_camera_pixel_with_segment(t_camera *cam, size_t pixel, t_segment *segment)
+unsigned int	representator_get_pixel(t_view_representator *vr, t_pixpos pos)
 {
-	t_ray_collider	rc;
-	t_collision		col;
+	size_t	address;
 
-	rc = camera_pixel_to_ray(cam, pixel);
-	rc.direction = vector_normalize(rc.direction);
-	col = collide_ray_segment(&rc, segment);
-	return (col);
+	address = representator_address_from_pixpos(vr, pos);
+	return (vr->draw_buffer[address]);
 }

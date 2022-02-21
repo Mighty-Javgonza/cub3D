@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 16:43:58 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 12:51:33 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/21 17:03:23 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ typedef struct s_pixpos
 	size_t	x;
 	size_t	y;
 }				t_pixpos;
+
+typedef struct s_bound_area
+{
+	t_pixpos	top_left;
+	t_pixpos	bot_right;
+}				t_bound_area;
 
 typedef t_pixpos	t_resolution;
 
@@ -69,4 +75,6 @@ void	destroy_graphic_environment(t_graphic_environment *ge);
 void	destroy_graphic_image(t_graphic_image *img, void *mlx);
 
 
+
+void	print_bound_area(t_bound_area area);
 #endif

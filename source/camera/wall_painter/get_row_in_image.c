@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 17:42:04 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 12:41:34 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/21 15:55:17 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ int	get_row_in_image(t_wall_slice_painter slice, int paint_offset)
 {
 	int 	image_row;
 
-	image_row =  ((float)paint_offset - (float)slice.z_start_in_screen) * slice.image_step;
+	image_row = (paint_offset - slice.z_start_in_screen);
 	return (image_row);
 }

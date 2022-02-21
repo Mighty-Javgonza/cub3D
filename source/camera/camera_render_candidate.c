@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 11:06:37 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 16:23:40 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/21 15:10:06 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "../textures/textures.h"
 #include "../error/error.h"
 
-static void	render_segments_farthest_to_closest(t_camera *cam, t_collision_candidate *candidate, float *distances)
+static void	render_segments_closest_to_farthest(t_camera *cam, t_collision_candidate *candidate, float *distances)
 {
 	size_t	i;
 	size_t	*ordered_indices;
@@ -24,15 +24,15 @@ static void	render_segments_farthest_to_closest(t_camera *cam, t_collision_candi
 
 	seg_count = candidate->col->segment_count;
 	ordered_indices = sort_float_array(distances, seg_count);
-	i = seg_count;
-	while (i > 0)
+	i = 0;
+	while (i < seg_count)
 	{
-		camera_render_candidate_segment(cam, candidate, ordered_indices[i - 1]);
-		i--;
+		camera_render_candidate_segment(cam, candidate, ordered_indices[i]);
+		i++;
 	}
 	free(ordered_indices);
 }
-/*
+
 static float	aproximate_distance_to_segment_end(t_segment segment, t_vector pos, t_vector direction)
 {
 	float		start;
@@ -46,7 +46,7 @@ static float	aproximate_distance_to_segment_end(t_segment segment, t_vector pos,
 		return (end);
 	return (start);
 }
-*/
+
 void	camera_render_candidate(t_camera *cam, size_t candidate_index)
 {
 	size_t					i;
@@ -66,10 +66,10 @@ void	camera_render_candidate(t_camera *cam, size_t candidate_index)
 	while (i < segment_count)
 	{
 		segment_in_world = add_segment_vector(segments[i], candidate->col->pos);
-		dist_to_segments[i] = distance_to_closest_segment_end(segment_in_world, cam->pos); 
-//		dist_to_segments[i] = aproximate_distance_to_segment_end(segment_in_world, cam->pos, cam->direction); 
+//		dist_to_segments[i] = distance_to_closest_segment_end(segment_in_world, cam->pos); 
+		dist_to_segments[i] = aproximate_distance_to_segment_end(segment_in_world, cam->pos, cam->direction); 
 		i++;
 	}
-	render_segments_farthest_to_closest(cam, candidate, dist_to_segments);
+	render_segments_closest_to_farthest(cam, candidate, dist_to_segments);
 	free(dist_to_segments);
 }

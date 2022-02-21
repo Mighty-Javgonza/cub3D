@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 12:20:26 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 12:37:16 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/21 17:04:12 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 #include <stdlib.h>
 #include "../../cub_math/cub_math.h"
+#include "../../graphics/graphics.h"
 
 typedef struct s_camera					t_camera;
+typedef struct s_camera_bound_box		t_camera_bound_box;
 typedef struct s_collision_candidate	t_collision_candidate;
 typedef struct s_graphic_image			t_graphic_image;
 
@@ -40,6 +42,7 @@ typedef struct s_wall_slice_interpolator
 	size_t					step_count;
 	int						can_be_painted;
 	t_camera_range			space_in_screen;
+	t_bound_area			bound_box;
 }				t_wall_slice_interpolator;
 
 int	get_column_in_image(t_collision col, t_graphic_image *image);

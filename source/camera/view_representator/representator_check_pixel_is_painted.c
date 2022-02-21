@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   collision_from_camera_pixel_with_segment.          :+:      :+:    :+:   */
+/*   representator_check_pixel_is_painted.c             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 12:14:52 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/21 12:31:13 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/21 13:08:20 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/21 13:13:15 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
-#include <stdio.h>
+#include "view_representator.h"
+#include <stdbool.h>
 
-t_collision	collision_from_camera_pixel_with_segment(t_camera *cam, size_t pixel, t_segment *segment)
+bool	representator_check_pixel_is_painted(t_view_representator *vr, t_pixpos pos)
 {
-	t_ray_collider	rc;
-	t_collision		col;
+	size_t	address;
 
-	rc = camera_pixel_to_ray(cam, pixel);
-	rc.direction = vector_normalize(rc.direction);
-	col = collide_ray_segment(&rc, segment);
-	return (col);
+	address = representator_address_from_pixpos(vr, pos);
+	return (vr->painted_pixels[address]);
 }

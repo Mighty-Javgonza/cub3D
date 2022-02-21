@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 11:39:18 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 13:47:13 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/21 18:31:07 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,41 +20,32 @@ static unsigned int	get_y_pixel_color(t_wall_slice_painter slice, int paint_offs
 	unsigned int	color;
 	int				image_row;
 
-	image_row = get_row_in_image(slice, paint_offset);
-	if (slice.column_in_image < 0)
-		slice.column_in_image = 0;
-	if (slice.column_in_image >= (int)image->res.x)
-		slice.column_in_image = image->res.x - 1;
-	if (image_row < 0)
-		image_row = 0;
-	if (image_row >= (int)image->res.y)
-		image_row = image->res.y - 1;
+	image_row = get_row_in_image(slice, paint_offset) * image->res.y / slice.height_in_screen;
 	color = image->addr[slice.column_in_image + image_row * image->line_length / 4];
 	return (color);
 }
 
 void	paint_wall_slice(t_camera *cam, t_wall_slice_painter slice, t_graphic_image *texture)
 {
-	int 			paint_offset;
-	unsigned int	color;
 	int				end;
+	t_pixpos		pixel;
+	int	start;
 
-	paint_offset = slice.z_start_in_screen;
-	if (slice.z_start_in_screen < 0)
-		paint_offset = 0;
+	pixel.x = cam->current_render_x_pixel;
+	start = slice.z_start_in_screen;
+	if (start < 0)
+		start = 0;
+	pixel.y = start;
 	end = slice.z_end_in_screen;
-	if (end > (int)camera_get_res_y(cam))
-		end = camera_get_res_y(cam);
-	while (paint_offset < end)
+	if (end >= (int)camera_get_res_y(cam))
+		end = camera_get_res_y(cam) - 1;
+	while ((int)pixel.y < end)
 	{
-		color = get_y_pixel_color(slice, paint_offset, texture);
-		if (paint_offset < (int)camera_get_res_y(cam) && paint_offset > 0) 
+		if (!representator_check_pixel_is_painted(&cam->representator, pixel))
 		{
-			if (cam->current_render_x_pixel > 0 && cam->current_render_x_pixel < camera_get_res_x(cam))
-				cam->representator.draw_buffer[cam->current_render_x_pixel + paint_offset * camera_get_res_x(cam)] = color;
-			else
-				break ;
+  			cam->representator.color = get_y_pixel_color(slice, pixel.y, texture);
+  			representator_paint_pixel(&cam->representator, pixel);
 		}
-		paint_offset++;
+		pixel.y++ /*+= random() / 300000000*/;
 	}
 }

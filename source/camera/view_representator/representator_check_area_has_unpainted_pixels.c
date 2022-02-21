@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_view_representator.c                          :+:      :+:    :+:   */
+/*   representator_check_area_has_unpainted_pi          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/20 12:46:45 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/21 18:03:01 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/21 16:53:22 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/21 17:44:25 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "view_representator.h"
-#include <stdlib.h>
 
-t_view_representator	init_view_representator()
+int	representator_check_area_has_unpainted_pixels(t_view_representator *vr, t_bound_area area)
 {
-	t_view_representator	rvalue;
+	t_pixpos	pos;
 
-	rvalue = (t_view_representator)
+	pos = area.top_left;
+	while (pos.y < area.bot_right.y)
 	{
-		.draw_buffer = NULL,
-		.plane = init_view_plane(),
-		.color = 0xFF0000,
-		.painted_pixels_count = 0,
-	};
-	return (rvalue);
+		pos.x = area.top_left.x;
+		while (pos.x < area.bot_right.x)
+		{
+			if (pos.x >= vr->res.x || pos.y >= vr->res.y)
+				return (0);
+			if (!representator_check_pixel_is_painted(vr, pos))
+				return (1);
+			pos.x++;
+		}
+		pos.y++;
+	}
+	return (0);
 }

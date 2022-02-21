@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   collision_from_camera_pixel_with_segment.          :+:      :+:    :+:   */
+/*   zz_temp_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 12:14:52 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/21 12:31:13 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/20 12:44:32 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/21 14:38:45 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
-#include <stdio.h>
+#include "../../tests.h"
 
-t_collision	collision_from_camera_pixel_with_segment(t_camera *cam, size_t pixel, t_segment *segment)
+int	main()
 {
-	t_ray_collider	rc;
-	t_collision		col;
+	t_view_representator	vr;
+	int						is_painted;
 
-	rc = camera_pixel_to_ray(cam, pixel);
-	rc.direction = vector_normalize(rc.direction);
-	col = collide_ray_segment(&rc, segment);
-	return (col);
+	vr = init_view_representator();
+	set_view_representator_resolution(&vr, (t_pixpos){10, 10});
+	representator_paint_pixel(&vr, (t_pixpos){3, 4});
+	is_painted = representator_check_pixel_is_painted(&vr, (t_pixpos){3, 4});
+	if (!is_painted) 
+		return (-1);
+	return (0);
 }

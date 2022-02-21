@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   collision_from_camera_pixel_with_segment.          :+:      :+:    :+:   */
+/*   print_bound_area.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 12:14:52 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/21 12:31:13 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/21 17:58:08 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/21 17:59:17 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
+#include "graphics.h"
 #include <stdio.h>
 
-t_collision	collision_from_camera_pixel_with_segment(t_camera *cam, size_t pixel, t_segment *segment)
+void	print_bound_area(t_bound_area area)
 {
-	t_ray_collider	rc;
-	t_collision		col;
-
-	rc = camera_pixel_to_ray(cam, pixel);
-	rc.direction = vector_normalize(rc.direction);
-	col = collide_ray_segment(&rc, segment);
-	return (col);
+	printf("x:%zu y:%zu - - x:%zu y:%zu\n", area.top_left.x, area.top_left.y, area.bot_right.x, area.bot_right.y);
 }
