@@ -6,15 +6,13 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 12:54:08 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:28:09 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAMERA_H
 # define CAMERA_H
 
-# define	DEFAULT_PLANE_WIDTH 5
-# define	DEFAULT_PLANE_DISTANCE 2
 # define	DEFAULT_CAMERA_RES_X 1920
 # define	DEFAULT_CAMERA_RES_Y 1080
 
@@ -38,12 +36,7 @@ typedef struct s_camera
 	t_vector				pos;
 	float					z_axis_pos;
 	t_vector				direction;
-	float					plane_distance;
-	float					plane_width;
-	float					plane_height;
-	size_t					res_x;
-	size_t					res_y;
-	unsigned int			*draw_buffer;
+	t_view_representator	representator;
 	float					*distances_to_plane;
 	size_t					current_render_x_pixel;
 	t_collision_candidate	*collision_candidates;
@@ -73,5 +66,12 @@ void	camera_render_all_candidates(t_camera *camera);
 t_collision	collision_from_camera_pixel_with_candidate(t_camera *camera, size_t candidate_index, size_t pixel);
 void	clear_camera_buffer(t_camera *cam, t_world *world);
 void	paint_interpolated_slices(t_camera *cam, t_wall_slice_interpolator interpolator, t_graphic_image *texture);
+
+
+size_t	camera_get_res_x(t_camera *camera);
+size_t	camera_get_res_y(t_camera *camera);
+float	camera_get_plane_height(t_camera *camera);
+float	camera_get_plane_width(t_camera *camera);
+float	camera_get_plane_distance(t_camera *camera);
 
 #endif

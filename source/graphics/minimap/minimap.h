@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 12:49:58 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 12:57:46 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:28:51 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "../graphics.h"
 #include "../../world/world.h"
 
+
 typedef struct s_minimap
 {
 	t_graphic_environment	*ge;
@@ -24,6 +25,8 @@ typedef struct s_minimap
 	t_pixpos				draw_pos;
 	unsigned int			background;
 }				t_minimap;
+
+extern t_minimap	debug_minimap;
 
 t_minimap	init_minimap(t_graphic_environment *ge, t_world *w);
 void	minimap_display(t_minimap *mini);

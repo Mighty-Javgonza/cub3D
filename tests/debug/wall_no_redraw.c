@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 16:08:27 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:42:53 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,18 @@ int main()
 	images[WEST_TEXTURE] = new_image_from_png(&ge, "assets/walls/debug_walls/west.png");
 
 	world = init_world();
+	debug_minimap = init_minimap(&ge, &world);
+	debug_minimap.img.scale_factor = 30;
 
-	add_wall(&world, (t_vector){-3, 1.5});
-//	add_wall(&world, (t_vector){-4, 1.5});
-//	add_wall(&world, (t_vector){-5, 1.5});
-//	add_wall(&world, (t_vector){-6, 1.5});
-//	add_wall(&world, (t_vector){-7, 1.5});
-//	add_wall(&world, (t_vector){-8, 1.5});
-//	add_wall(&world, (t_vector){-7, -1.5});
-//	add_wall(&world, (t_vector){-6, -1.5});
-//	add_wall(&world, (t_vector){-5, -1.5});
-//	add_wall(&world, (t_vector){-4, -1.5});
-//	add_wall(&world, (t_vector){-9.5, 1});
-//	world.walls[1].col.z_axis_height = 1.3;
-	world.player.cam.direction = (t_vector){-1, 0};
-	world.player.cam.pos = (t_vector){0.05, 0};
+	add_wall(&world, (t_vector){6, 3});
+	paint_bound_collider(&debug_minimap.img, &world.walls[0].col);
+	world.player.cam.direction = vector_normalize((t_vector){0.8, 0.2});
+	world.player.cam.pos = (t_vector){3, 3};
 	assign_parent_to_colliders(&world);
 	assign_default_textures(&world, images);
-//	calculate_candidate_colliders(&world.player.cam, &world);
-//	camera_render_all_candidates(&world.player.cam);
 	camera_render_image(&world.player.cam, &world);
 	display_camera_view(&ge, &world.player.cam);
+	minimap_display(&debug_minimap);
 
 	mlx_loop(ge.mlx);
 }

@@ -6,12 +6,14 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:14:06 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 12:58:27 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:30:54 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minimap.h"
 #include "../graphics.h"
+
+t_minimap debug_minimap;
 
 t_minimap	init_minimap(t_graphic_environment *ge, t_world *w)
 {

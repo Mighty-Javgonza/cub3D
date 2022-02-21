@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:43:45 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 12:59:20 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 13:49:24 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	paint_miniplayer_vision_cone(t_minimap *mp)
 	t_segment		ray_to_col;
 
 	i = 0;
-	while (i < mp->world->player.cam.res_x)
+	while (i < camera_get_res_x(&mp->world->player.cam))
 	{
 		rc = camera_pixel_to_ray(&mp->world->player.cam, i);
 		col = collide_ray_world(&rc, mp->world);

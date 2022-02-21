@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 16:29:58 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/09 20:04:09 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 16:06:59 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 static void	render_frame(t_graphic_environment *ge, t_world *w)
 {
-	ft_memset(w->player.cam.draw_buffer, 0x0, 1920 * 1080 * 4);
+	ft_memset(w->player.cam.representator.draw_buffer, 0x0, 1920 * 1080 * 4);
 	camera_render_image(&w->player.cam, w);
 	display_camera_view(ge, &w->player.cam);
 }
@@ -47,8 +47,7 @@ int	main()
 	ge = init_graphic_environment((t_pixpos){1920, 1080});
 
 	w = init_world();
-	w.player.cam.res_x = 1920;
-	w.player.cam.res_y = 1080;
+	set_view_representator_resolution(&w.player.cam.representator, (t_resolution){1920, 1080});
 	restart_draw_buffer(&w.player.cam);
 
 	add_wall(&w, (t_vector){5, 2});

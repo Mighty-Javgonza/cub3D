@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calculate_distances_to_plane.c                     :+:      :+:    :+:   */
+/*   paint_representator_background.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 17:42:46 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 13:08:01 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/20 18:50:49 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/20 18:58:34 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
+#include "view_representator.h"
+#include "../../world/world.h"
 
-void	calculate_distances_to_plane(t_camera *c)
+void	paint_representator_background(t_view_representator *r, t_world *w)
 {
-	size_t			i;
-	t_vector		vector_to_plane;
-	
+	size_t	i;
+	size_t	ceiling_size;
+	size_t	full_resolution;
+
+	full_resolution = r->res.x * r->res.y;
+	ceiling_size = full_resolution * 8/12;
 	i = 0;
-	while (i < camera_get_res_x(c))
+	while (i < ceiling_size)
 	{
-		vector_to_plane = get_vector_to_plane_from_camera_pixel(c, i);
-		c->distances_to_plane[i] = vector_length(vector_to_plane);
+		r->draw_buffer[i] = w->ceiling_color;
+		i++;
+	}
+	while (i < full_resolution)
+	{
+		r->draw_buffer[i] = w->floor_color;
 		i++;
 	}
 }

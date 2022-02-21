@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pixel_is_in_camera_bounds.c                        :+:      :+:    :+:   */
+/*   player_jump.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 13:01:27 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 13:32:07 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/20 18:42:48 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/20 18:46:25 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
-#include <stdio.h>
+#include "player.h"
 
-int	pixel_is_in_camera_bounds(t_camera *cam, int pixel)
+void	player_jump(t_player *player)
 {
-	if (pixel < 0 || pixel >= (int)camera_get_res_x(cam))
-		return (0);
-	return (1);
+	if (!player->in_air)
+	{
+		player->vertical_speed = player->jump_force;
+		player->in_air = 1;
+	}
 }

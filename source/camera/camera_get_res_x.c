@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   collision_from_camera_pixel.c                      :+:      :+:    :+:   */
+/*   camera_get_res_x.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 11:16:35 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 14:17:59 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/20 13:06:03 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/20 13:06:33 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
-#include <stdio.h>
-#include "../world/world.h"
 
-t_collision	collision_from_camera_pixel(t_camera *cam, t_world *world, size_t pixel)
+size_t	camera_get_res_x(t_camera *camera)
 {
-	t_ray_collider			rc;
-	
-	if (pixel > camera_get_res_x(cam))
-		return ((t_collision){.exists = 0});
-	decide_candidates_of_pixel(cam, pixel);
-	rc = camera_pixel_to_ray(cam, pixel);
-	return (collide_ray_candidates(&rc, cam->collision_candidates, world->wall_count));
+	return (camera->representator.res.x);
 }

@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 11:39:18 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 12:54:48 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 13:47:13 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@ void	paint_wall_slice(t_camera *cam, t_wall_slice_painter slice, t_graphic_image
 	if (slice.z_start_in_screen < 0)
 		paint_offset = 0;
 	end = slice.z_end_in_screen;
-	if (end > (int)cam->res_y)
-		end = cam->res_y;
+	if (end > (int)camera_get_res_y(cam))
+		end = camera_get_res_y(cam);
 	while (paint_offset < end)
 	{
 		color = get_y_pixel_color(slice, paint_offset, texture);
-		if (paint_offset < (int)cam->res_y && paint_offset > 0) 
+		if (paint_offset < (int)camera_get_res_y(cam) && paint_offset > 0) 
 		{
-			if (cam->current_render_x_pixel > 0 && cam->current_render_x_pixel < cam->res_x)
-				cam->draw_buffer[cam->current_render_x_pixel + paint_offset * cam->res_x] = color;
+			if (cam->current_render_x_pixel > 0 && cam->current_render_x_pixel < camera_get_res_x(cam))
+				cam->representator.draw_buffer[cam->current_render_x_pixel + paint_offset * camera_get_res_x(cam)] = color;
 			else
 				break ;
 		}

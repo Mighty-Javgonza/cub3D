@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/03 16:56:29 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 16:45:19 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,9 @@ static int	reshape(void *ignored)
 	(void)ignored;
 
 	world.walls[0].col.pos.y += 0.015;
-	ft_memset(world.player.cam.draw_buffer, 0x0, world.player.cam.res_x * world.player.cam.res_y * 4);
+	ft_memset(world.player.cam.representator.draw_buffer, 0x0, camera_get_res_x(&world.player.cam) * camera_get_res_y(&world.player.cam) * 4);
 	camera_render_image(&world.player.cam, &world);
-	ft_memmove(addr, world.player.cam.draw_buffer, 4 * world.player.cam.res_x * (world.player.cam.res_y - 1));
-	mlx_put_image_to_window(ge.mlx, ge.win, mlx_img, 0, 0);
-	img.color = 0xa0000000;
-	clear_image(&img);
-	paint_world(&img, &world);
-	display_image(&ge, &img, (t_pixpos){0, 0});
+	display_camera_view(&ge, &world.player.cam);
 	return (0);
 }
 

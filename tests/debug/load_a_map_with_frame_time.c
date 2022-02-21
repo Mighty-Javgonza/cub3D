@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/11 19:03:37 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 16:02:23 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	reshape(void *ignored)
 	struct timeval	after;	
 
 	gettimeofday(&before, NULL);
-	ft_memset(world.player.cam.draw_buffer, 0x0, world.player.cam.res_x * world.player.cam.res_y * 4);
+	ft_memset(world.player.cam.representator.draw_buffer, 0x0, camera_get_res_x(&world.player.cam) * camera_get_res_y(&world.player.cam) * 4);
 	camera_render_image(&world.player.cam, &world);
 	player_update_movement(&world.player);
 	display_camera_view(&ge, &world.player.cam);

@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:22:43 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/08 19:43:54 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 18:33:02 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,12 @@ t_camera	init_camera()
 	{
 		.pos = {0, 0},
 		.direction = {1, 0},
-		.plane_distance = DEFAULT_PLANE_DISTANCE,
-		.plane_width = DEFAULT_PLANE_WIDTH,
-		.res_x = DEFAULT_CAMERA_RES_X,
-		.res_y = DEFAULT_CAMERA_RES_Y,
-		.draw_buffer = NULL,
+		.representator = init_view_representator(),
 		.z_axis_pos = 0.5,
 		.collision_candidates = NULL,
 		.collision_candidates_count = 0,
 	};
-	restart_draw_buffer(&rvalue);
+	set_view_representator_resolution(&rvalue.representator, (t_pixpos){DEFAULT_CAMERA_RES_X, DEFAULT_CAMERA_RES_Y});
 	rvalue.distances_to_plane = malloc(sizeof(*rvalue.distances_to_plane) * DEFAULT_CAMERA_RES_X);
 	calculate_distances_to_plane(&rvalue);
 	return (rvalue);

@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pixel_is_in_camera_bounds.c                        :+:      :+:    :+:   */
+/*   zz_temp_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 13:01:27 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 13:32:07 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/20 13:03:34 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/20 13:03:50 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
-#include <stdio.h>
+#include "../../tests.h"
 
-int	pixel_is_in_camera_bounds(t_camera *cam, int pixel)
+int	main()
 {
-	if (pixel < 0 || pixel >= (int)camera_get_res_x(cam))
-		return (0);
-	return (1);
+
 }

@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/11 17:19:30 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 15:57:21 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	reshape(void *ignored)
 
 	factor = (float)frame / 3;
 	frame++;
-	ft_memset(world.player.cam.draw_buffer, 0x0, world.player.cam.res_x * world.player.cam.res_y * 4);
+	ft_memset(world.player.cam.representator.draw_buffer, 0x0, camera_get_res_x(&world.player.cam) * camera_get_res_y(&world.player.cam) * 4);
 	camera_render_image(&world.player.cam, &world);
 	display_camera_view(&ge, &world.player.cam);
 	world.walls[0].col.z_axis_height += sin(factor + 0.3) / 3;
@@ -56,8 +56,10 @@ int main()
 	images[3] = new_image_from_png(&ge, "assets/walls/fgata-va.png");
 
 	world = init_world();
-	world.player.cam.res_x = 1920;
-	world.player.cam.res_y = 1080;
+	set_view_representator_resolution(&world.player.cam.representator, (t_resolution){1920, 1080});
+//	world.player.cam.res_x = 1920;
+
+//	world.player.cam.res_y = 1080;
 	restart_draw_buffer(&world.player.cam);
 
 	add_wall(&world, (t_vector){3, 0});

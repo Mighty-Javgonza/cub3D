@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_view_representator.c                          :+:      :+:    :+:   */
+/*   view_representator_get_pixel.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/20 12:46:45 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 14:18:36 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/20 13:12:38 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/20 13:16:28 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "view_representator.h"
-#include <stdlib.h>
+#include "../../error/error.h"
 
-t_view_representator	init_view_representator()
+unsigned int	view_representator_get_pixel(t_view_representator *vr, t_pixpos pixel)
 {
-	t_view_representator	rvalue;
-
-	rvalue = (t_view_representator)
-	{
-		.draw_buffer = NULL,
-		.plane = init_view_plane(),
-	};
-	return (rvalue);
+	if (pixel.x > vr->res.x || pixel.x < 0)
+		exit_and_message("View representator cannot acces x pixel\n");
+	if (pixel.y > vr->res.x || pixel.y < 0)
+		exit_and_message("View representator cannot acces y pixel\n");
+	return (vr->draw_buffer[pixel.x + pixel.y * vr->res.x]);
 }

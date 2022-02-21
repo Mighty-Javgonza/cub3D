@@ -6,12 +6,13 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:34:51 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/16 16:40:44 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 18:32:10 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
 #include <stdio.h>
+#include "../graphics/minimap/minimap.h"
 
 t_ray_collider	camera_pixel_to_ray(t_camera *cam, size_t index)
 {

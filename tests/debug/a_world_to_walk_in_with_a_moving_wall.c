@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:17:39 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/15 12:28:20 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 15:54:10 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,8 @@ int main()
 	images[3] = new_image_from_png(&ge, "assets/walls/sigrodri.png");
 
 	world = init_world();
-	world.player.cam.res_x = 1920;
-	world.player.cam.res_y = 1080;
-printf("%f\n", world.player.cam.z_axis_pos);
+	world.player.cam.representator.res.x = 1920;
+	world.player.cam.representator.res.y = 1080;
 //	world.player.cam.z_axis_pos += 0.00005;
 	world.player.cam.z_axis_pos = 0.5;
 	restart_draw_buffer(&world.player.cam);

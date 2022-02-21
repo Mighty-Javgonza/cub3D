@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pixel_is_in_camera_bounds.c                        :+:      :+:    :+:   */
+/*   init_view_plane.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 13:01:27 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 13:32:07 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/20 13:28:13 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/20 13:52:08 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
-#include <stdio.h>
+#include "view_representator.h"
+#include "../camera.h"
 
-int	pixel_is_in_camera_bounds(t_camera *cam, int pixel)
+t_view_plane	init_view_plane()
 {
-	if (pixel < 0 || pixel >= (int)camera_get_res_x(cam))
-		return (0);
-	return (1);
+	t_view_plane	rvalue;
+
+	rvalue = (t_view_plane)
+	{
+		.distance = DEFAULT_PLANE_DISTANCE,
+		.width = DEFAULT_PLANE_WIDTH,
+		.height = DEFAULT_PLANE_WIDTH * DEFAULT_CAMERA_RES_Y / DEFAULT_CAMERA_RES_X,
+	};
+	return (rvalue);
 }

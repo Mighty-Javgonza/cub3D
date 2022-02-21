@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pixel_is_in_camera_bounds.c                        :+:      :+:    :+:   */
+/*   destroy_view_representator.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 13:01:27 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 13:32:07 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/20 13:17:50 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/20 13:40:28 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
-#include <stdio.h>
+#include "../camera.h"
 
-int	pixel_is_in_camera_bounds(t_camera *cam, int pixel)
+void	destroy_view_representator(t_view_representator *vr)
 {
-	if (pixel < 0 || pixel >= (int)camera_get_res_x(cam))
-		return (0);
-	return (1);
+	if (vr->draw_buffer != NULL)
+		free(vr->draw_buffer);
 }

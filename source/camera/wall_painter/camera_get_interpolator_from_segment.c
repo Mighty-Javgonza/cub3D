@@ -6,11 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 12:02:54 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 12:41:10 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 18:00:55 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wall_painter.h"
+#include <stdio.h>
 #include "../camera.h"
 
 t_wall_slice_interpolator	camera_get_interpolator_from_segment(t_camera *cam, t_collision_candidate *candidate, size_t segment_index)
@@ -21,7 +22,6 @@ t_wall_slice_interpolator	camera_get_interpolator_from_segment(t_camera *cam, t_
 	t_collision					end_col;
 	t_segment					segment;
 	t_segment					segment_in_world;
-	t_segment					segment_as_seen_from_camera;
 
 	segment = candidate->col->segments[segment_index];
 	segment_in_world = add_segment_vector(segment, candidate->col->pos);
@@ -29,13 +29,10 @@ t_wall_slice_interpolator	camera_get_interpolator_from_segment(t_camera *cam, t_
 	segment_range.start += 1;
 	segment_range.end -= 1;
 	interpolator.can_be_painted = 0;
-	//if (!pixel_is_in_camera_bounds(cam, segment_range.start) && !pixel_is_in_camera_bounds(cam, segment_range.end))
-	//	return (interpolator);
-	if (/*pixel_is_in_camera_bounds(cam, segment_range.start) && */!pixel_is_in_camera_bounds(cam, segment_range.end))
-		segment_range.end = cam->res_x - 1;
-	if (!pixel_is_in_camera_bounds(cam, segment_range.start)/* && pixel_is_in_camera_bounds(cam, segment_range.end)*/)
+	if (!pixel_is_in_camera_bounds(cam, segment_range.end))
+		segment_range.end = camera_get_res_x(cam) - 1;
+	if (!pixel_is_in_camera_bounds(cam, segment_range.start))
 		segment_range.start = 0;
-	segment_as_seen_from_camera = sub_segment_vector(segment_in_world, cam->pos);
 	start_col = collision_from_camera_pixel_with_segment(cam, segment_range.start, &segment_in_world);
 	if (start_col.exists)
 	{

@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 17:11:53 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/16 18:08:04 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 13:07:37 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static void	calculate_candidate_bounds_in_screen(t_camera *cam, t_collision_cand
 	t_camera_range	collider_range;
 	
 	collider_range.end = -1;
-	collider_range.start = cam->res_x + 1;
+	collider_range.start = camera_get_res_x(cam) + 1;
 
 	i = 0;
 	while (i < candidate->col->segment_count)
@@ -70,7 +70,7 @@ static void	calculate_candidate_bounds_in_screen(t_camera *cam, t_collision_cand
 		if (!pixel_is_in_camera_bounds(cam, segment_range.start) && pixel_is_in_camera_bounds(cam, segment_range.end))
 			segment_range.start = 0;
 		else if (pixel_is_in_camera_bounds(cam, segment_range.start) && !pixel_is_in_camera_bounds(cam, segment_range.end))
-			segment_range.end = cam->res_x;
+			segment_range.end = camera_get_res_x(cam);
 		if (range_is_in_camera_bounds(cam, segment_range))
 		{
 			if (segment_range.end > collider_range.end)

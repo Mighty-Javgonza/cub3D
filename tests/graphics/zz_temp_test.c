@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 16:43:58 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 19:39:29 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 16:47:51 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static int	reshape(void *ignored)
 	(void)ignored;
 	paint_minimap(&mini);
 	minimap_display(&mini);
+	player_update_movement(&w.player);
 	return (0);
 }
 
@@ -44,7 +45,11 @@ int	main()
 	mini = init_minimap(&ge, &w);
 	mini.img.scale_factor = 30;
 
-	hook_controls(ge.win, &mini.world->player);
+	t_global_environment	gb;
+
+	gb.world = &w;
+	gb.ge = &ge;
+	hook_controls(&gb);
 	mlx_loop_hook(ge.mlx, &reshape, NULL);
 	mlx_loop(ge.mlx);
 }

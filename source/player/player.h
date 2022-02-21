@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 17:05:48 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/11 13:54:11 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/20 18:48:41 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,23 @@
 # define PLAYER_H
 # define DEFAULT_PLAYER_SPEED 0.05
 # define DEFAULT_PLAYER_ROTATION_SPEED 0.015
+# define DEFAULT_PLAYER_HEIGHT 0.5
+# define DEFAULT_PLAYER_JUMP_FORCE 0.05
+# define GRAVITY 0.0035
 
 #include "../camera/camera.h"
 #include "../mac_keys.h"
 
 typedef struct s_player
 {
+	// Usar position de la camara
 	t_camera	cam;
 	float		speed;
 	float		rotation_speed;
-	// Usar position de la camara
+	float		jump_force;
+	float		vertical_speed;
+	float		height;
+	unsigned int	in_air:1;
 	unsigned int	move_right:1;
 	unsigned int	move_left:1;
 	unsigned int	move_forwards:1;
@@ -57,4 +64,6 @@ void	destroy_player(t_player *player);
 
 int	player_movement_release(int keycode, t_player *player);
 void	player_update_movement(t_player *player);
+
+void	player_jump(t_player *player);
 #endif
