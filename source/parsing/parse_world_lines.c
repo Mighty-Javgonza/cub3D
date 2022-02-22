@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:18:10 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/15 18:47:31 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 15:01:26 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ void	parse_world_lines(t_map *map)
 			exit_and_message("Invalid chars detected on map\n");
 		is_valid_line = get_next_line(map->fd, &line);
 	}
+	free(line);
 }

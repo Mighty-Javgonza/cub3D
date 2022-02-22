@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 13:08:36 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/15 19:09:28 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 15:03:07 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	parse_map(t_map *map, t_graphic_environment *ge)
 {
 	int		i;
 	char	*line;
+	int		control;
 
 	i = 0;
 	open_map(map);
@@ -61,7 +62,9 @@ void	parse_map(t_map *map, t_graphic_environment *ge)
 		exit_and_message("Couldn't open map\n");
 	while (i < 6)
 	{
-		get_next_line(map->fd, &line);
+		control = get_next_line(map->fd, &line);
+		if (control == 0)
+			exit_and_message("Incomplete map\n");
 		if (ft_strlen(line) == 0)
 		{
 			free(line);
@@ -76,4 +79,8 @@ void	parse_map(t_map *map, t_graphic_environment *ge)
 	}
 	exit_if_textures_and_colors_not_parsed(map);
 	parse_world_lines(map);
+	validate_world(map);
+	close(map->fd);
+	if (map->valid == 0)
+		exit_and_message("World invalid\n");
 }

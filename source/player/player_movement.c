@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 15:47:29 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 18:46:19 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 12:48:35 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	player_movement(int keycode, t_player *player)
 		player_move_down_z(player);
 	else if (keycode == MAC_KEY_SPACEBAR)
 		player_jump(player);
+	else if (keycode == MAC_KEY_SHIFT_LEFT)
+		player_run(player);
 	else
 		printf("Not valid input\n");
 	return (0);

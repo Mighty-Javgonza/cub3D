@@ -1,4 +1,4 @@
-NO assets/walls/Robgonza.png
+NO assets/walls/debug_walls/north.png
 F 128,128,128
 EA assets/walls/debug_walls/east.png
 WE assets/walls/debug_walls/west.png

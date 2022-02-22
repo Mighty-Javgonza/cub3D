@@ -6,11 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 11:39:18 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/21 18:31:07 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 13:03:58 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wall_painter.h"
+#include <stdio.h>
 #include "../camera.h"
 #include <math.h>
 #include "../../graphics/graphics.h"
@@ -21,7 +22,12 @@ static unsigned int	get_y_pixel_color(t_wall_slice_painter slice, int paint_offs
 	int				image_row;
 
 	image_row = get_row_in_image(slice, paint_offset) * image->res.y / slice.height_in_screen;
-	color = image->addr[slice.column_in_image + image_row * image->line_length / 4];
+	if (image_row < 0 || image_row >= (int)image->res.y)
+		color = 0xFF0000;
+	else if(slice.column_in_image < 0 || slice.column_in_image > (int)image->res.x)
+		color = 0x00FF00;
+	else
+		color = image->addr[slice.column_in_image + image_row * image->line_length / 4];
 	return (color);
 }
 

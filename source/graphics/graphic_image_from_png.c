@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:12:01 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/15 14:57:07 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 15:01:41 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,4 @@ t_graphic_image	graphic_image_from_png(t_graphic_environment *ge, char *path)
 	image.addr = (void *)mlx_get_data_addr(image.mlx_image, &ignored, &image.line_length, &ignored);
 	image.res = (t_pixpos){width, height};
 	return (image);
-	}
+}

@@ -6,12 +6,13 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 15:57:47 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/15 18:26:35 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 12:36:11 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 #include <stdio.h>
+#include "../error/error.h"
 
 void	parse_texture(t_map *map, t_graphic_environment *ge, char *texture_line)
 {

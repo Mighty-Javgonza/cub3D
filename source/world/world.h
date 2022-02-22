@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 16:34:20 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/15 16:52:34 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 12:26:31 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void assign_parent_to_colliders(t_world *w);
 
 void	add_list_of_wall(t_world *w, t_list *coordinate_walls);
 void	destroy_walls(t_world *world);
-void	destroy_world(t_world *world);
+void	destroy_world(t_world *world, t_graphic_environment *ge);
 
 
 #endif

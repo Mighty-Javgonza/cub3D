@@ -6,11 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:30:32 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 14:21:14 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 12:54:01 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "source/all_headers.h"
+#include <stdlib.h>
 #include <mlx.h>
 
 static int	update(t_global_environment *gb)
@@ -30,10 +31,16 @@ static void	init_basic_parameters(t_world *world, t_graphic_environment *ge, cha
 	*ge = init_graphic_environment((t_pixpos){1920, 1080});
 	map = init_map(map_name);
 	parse_map(&map, ge);
+	system("leaks -q cub3D");
 	world_shaper(world, &map);
 	destroy_map(&map);
 	assign_parent_to_colliders(world);
 	assign_default_textures(world, world->wall_textures);
+}
+
+void	show_leaks()
+{
+	system("leaks -q cub3D");
 }
 
 int main(int argc, char **argv)
@@ -42,6 +49,7 @@ int main(int argc, char **argv)
 	t_world					world;
 	t_global_environment	gb;
 
+	atexit(show_leaks);
 	if (argc != 2)
 		exit_and_message("Insert a map pls or delete maps, one at a time\n");
 	init_basic_parameters(&world, &ge, argv[1]);

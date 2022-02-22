@@ -1,0 +1,8 @@
+NO assets/walls/Robgonza.png
+F 128,128,128
+EA assets/walls/debug_walls/east.png
+WE assets/walls/debug_walls/west.png
+SO assets/walls/debug_walls/south.png
+
+C 188,215,221
+

@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 15:47:29 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/10 14:37:10 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/21 19:20:42 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	player_movement_release(int keycode, t_player *player)
 		player->rotate_right = 0;
 	else if (keycode == MAC_KEY_I)
 		player_move_up_z(player);
+	else if (keycode == MAC_KEY_SHIFT_LEFT)
+		player_stop_running(player);
 	else
 		printf("Not valid input\n");
 	return (0);

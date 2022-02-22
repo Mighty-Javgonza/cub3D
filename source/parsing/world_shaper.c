@@ -6,11 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:13:17 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 12:59:49 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 12:23:11 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
+#include <stdio.h>
 #include "../world/world.h"
 
 void	world_shaper(t_world *world, t_map *map)
