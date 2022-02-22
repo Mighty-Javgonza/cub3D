@@ -30,7 +30,7 @@ typedef struct s_wall
 	t_collider_texturizer	texturizer;
 }				t_wall;
 
-t_wall	init_wall();
+t_wall	init_wall(void);
 void	calculate_wall_segments(t_wall *wall);
 
 void	destroy_one_wall(t_wall *wall);

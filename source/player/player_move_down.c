@@ -14,7 +14,7 @@
 
 void	player_move_down(t_player *player)
 {
-	t_vector displacement;
+	t_vector	displacement;
 
 	displacement = vector_times_float(player->cam.direction, -player->speed);
 	player->cam.pos = add_vectors(player->cam.pos, displacement);

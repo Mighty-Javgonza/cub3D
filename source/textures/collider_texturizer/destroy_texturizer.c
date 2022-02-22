@@ -14,5 +14,5 @@
 
 void	destroy_texturizer(t_collider_texturizer *texturizer)
 {
-	free(texturizer->textures);	
+	free(texturizer->textures);
 }

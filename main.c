@@ -13,6 +13,7 @@
 #include "source/all_headers.h"
 #include <stdlib.h>
 #include <mlx.h>
+#include <stdio.h>
 
 static int	update(t_global_environment *gb)
 {

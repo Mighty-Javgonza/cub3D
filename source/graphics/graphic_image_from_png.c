@@ -24,9 +24,10 @@ t_graphic_image	graphic_image_from_png(t_graphic_environment *ge, char *path)
 
 	image = init_graphic_image();
 	image.mlx_image = mlx_png_file_to_image(ge->mlx, path, &width, &height);
-	if(image.mlx_image == NULL)
+	if (image.mlx_image == NULL)
 		exit_and_message("");
-	image.addr = (void *)mlx_get_data_addr(image.mlx_image, &ignored, &image.line_length, &ignored);
+	image.addr = (void *)mlx_get_data_addr(image.mlx_image, &ignored,
+			&image.line_length, &ignored);
 	image.res = (t_pixpos){width, height};
 	return (image);
 }

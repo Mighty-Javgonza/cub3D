@@ -18,5 +18,6 @@
 void	exit_and_message(char *message)
 {
 	write(STDOUT_FILENO, message, ft_strlen(message));
+	system("leaks cub3D");
 	exit(-1);
 }

@@ -12,12 +12,17 @@
 
 #include "textures.h"
 
-void	create_default_textures(t_graphic_image **images, t_graphic_environment *ge)
+void	create_default_textures(t_graphic_image **images,
+	t_graphic_environment *ge)
 {
 	size_t			i;
-	unsigned int	default_colors[4] = {0xFF0000, 0x00FF00, 0x0000FF, 0xFFFF00};
-	
+	unsigned int	default_colors[4];
+
 	i = 0;
+	default_colors[0] = 0xFF0000;
+	default_colors[1] = 0x00FF00;
+	default_colors[2] = 0x0000FF;
+	default_colors[3] = 0xFFFF00;
 	while (i < 4)
 	{
 		images[i] = malloc(sizeof(**images));

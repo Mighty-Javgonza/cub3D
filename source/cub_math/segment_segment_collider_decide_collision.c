@@ -22,7 +22,7 @@ static int	point_in_segment_bound(t_vector v, t_segment *s)
 		if (v.x < s->p2.x - 0.001 || v.x > s->p1.x + 0.001)
 			return (0);
 	if (s->p1.y < s->p2.y)
-		if (v.y > s->p2.y + 0.001|| v.y < s->p1.y - 0.001)
+		if (v.y > s->p2.y + 0.001 || v.y < s->p1.y - 0.001)
 			return (0);
 	if (s->p1.y > s->p2.y)
 		if (v.y < s->p2.y - 0.001 || v.y > s->p1.y + 0.001)

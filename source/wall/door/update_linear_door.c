@@ -23,7 +23,8 @@ void	update_linear_door(t_linear_door *door)
 			door->state = DOOR_STATE_OPENED;
 		else
 		{
-			*door_pos = add_vectors(*door_pos, vector_times_float(door->opening_direction, door->speed));
+			*door_pos = add_vectors(*door_pos,
+					vector_times_float(door->opening_direction, door->speed));
 			door->displacement += door->speed;
 		}
 	}
@@ -33,7 +34,8 @@ void	update_linear_door(t_linear_door *door)
 			door->state = DOOR_STATE_CLOSED;
 		else
 		{
-			door->wall->col.pos = add_vectors(door->wall->col.pos, vector_times_float(door->opening_direction, -door->speed));
+			door->wall->col.pos = add_vectors(door->wall->col.pos,
+					vector_times_float(door->opening_direction, -door->speed));
 			door->displacement -= door->speed;
 		}
 	}

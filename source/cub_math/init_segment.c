@@ -12,7 +12,7 @@
 
 #include "cub_math.h"
 
-t_segment	init_segment()
+t_segment	init_segment(void)
 {
 	t_segment	rvalue;
 

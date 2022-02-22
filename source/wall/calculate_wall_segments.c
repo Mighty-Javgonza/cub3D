@@ -16,16 +16,15 @@
 
 void	calculate_wall_segments(t_wall *wall)
 {
-	t_vector	top_left_corner;	
-	t_vector	top_right_corner;	
-	t_vector	bot_left_corner;	
-	t_vector	bot_right_corner;	
+	t_vector	top_left_corner;
+	t_vector	top_right_corner;
+	t_vector	bot_left_corner;
+	t_vector	bot_right_corner;
 
 	top_left_corner = (t_vector){-wall->width / 2, -wall->height / 2};
-	bot_left_corner = (t_vector){-wall->width / 2, + wall->height / 2};
+	bot_left_corner = (t_vector){-wall->width / 2, +wall->height / 2};
 	bot_right_corner = (t_vector){+wall->width / 2, +wall->height / 2};
 	top_right_corner = (t_vector){+wall->width / 2, -wall->height / 2};
-	
 	wall->col.segments[0] = (t_segment){top_left_corner, bot_left_corner};
 	wall->col.segments[1] = (t_segment){bot_left_corner, bot_right_corner};
 	wall->col.segments[2] = (t_segment){bot_right_corner, top_right_corner};

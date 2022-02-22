@@ -13,7 +13,8 @@
 #include "cub_math.h"
 #include <stdio.h>
 
-float	interpolate_float(float min_val, float max_val, size_t step_count, size_t step)
+float	interpolate_float(float min_val, float max_val,
+	size_t step_count, size_t step)
 {
 	float	result;
 	float	step_size;
