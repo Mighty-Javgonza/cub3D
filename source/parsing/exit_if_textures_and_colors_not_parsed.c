@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   interpolate_int.c                                  :+:      :+:    :+:   */
+/*   exit_if_textures_and_colors_not_parsed.c           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 11:43:28 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/22 15:28:45 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/22 16:18:10 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/22 16:20:45 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub_math.h"
+#include "parsing.h"
+#include "../error/error.h"
 
-int	interpolate_int(int min_val, int max_val, size_t step_count, size_t step)
+void	exit_if_textures_and_colors_not_parsed(t_map *map)
 {
-	int		result;
-	float	step_size;
-	float	val;
-
-	step_size = ((float)max_val - (float)min_val) / (float)step_count;
-	val = step_size * ((float)step + 1);
-	result = val + min_val;
-	return (result);
+	if (all_textures_parsed(map) == 0)
+		exit_and_message("Error on textures\n");
+	if (all_colors_parsed(map) == 0)
+		exit_and_message("Error on colors\n");
 }

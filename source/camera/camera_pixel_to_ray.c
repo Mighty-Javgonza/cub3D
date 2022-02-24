@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 15:34:51 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 18:32:10 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 11:47:31 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ t_ray_collider	camera_pixel_to_ray(t_camera *cam, size_t index)
 	vector_to_plane = get_vector_to_plane_from_camera_pixel(cam, index);
 	rc = init_ray_collider();
 	rc.origin = cam->pos;
-	rc.direction = vector_divided_float(vector_to_plane, cam->distances_to_plane[index]);
+	rc.direction = vector_divided_float(vector_to_plane,
+			cam->distances_to_plane[index]);
 	if (rc.direction.x == 1)
 		rc.direction.x = 0.999;
 	else if (rc.direction.x == 0)

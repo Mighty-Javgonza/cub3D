@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 13:32:56 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/21 14:40:18 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 11:17:38 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ static void	initialize_painted_pixels(t_view_representator *vr)
 	ft_memset(vr->painted_pixels, 0, array_size);
 }
 
-void	set_view_representator_resolution(t_view_representator *vr, t_resolution res)
+void	set_view_representator_resolution(t_view_representator *vr,
+			t_resolution res)
 {
 	vr->res = res;
 	if (vr->draw_buffer != NULL)

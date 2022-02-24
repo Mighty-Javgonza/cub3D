@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:07:41 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/06 18:29:12 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 15:24:33 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 # define DEFAULT_WALL_REAL_HEIGHT 1
 # define WALL_SEGMENT_COUNT 4
 
-#include "../cub_math/cub_math.h"
-#include "../bound_collider/bound_collider.h"
-#include "../textures/collider_texturizer/collider_texturizer.h"
+# include "../cub_math/cub_math.h"
+# include "../bound_collider/bound_collider.h"
+# include "../textures/collider_texturizer/collider_texturizer.h"
 
 typedef struct s_wall
 {
@@ -32,6 +32,5 @@ typedef struct s_wall
 
 t_wall	init_wall(void);
 void	calculate_wall_segments(t_wall *wall);
-
 void	destroy_one_wall(t_wall *wall);
 #endif

@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   collision_from_camera_pixel.c                      :+:      :+:    :+:   */
+/*   candidate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 11:16:35 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/24 11:27:50 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/24 12:25:26 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/24 12:27:53 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
-#include <stdio.h>
-#include "../world/world.h"
 
-t_collision	collision_from_camera_pixel(t_camera *cam, t_world *world,
-			size_t pixel)
+void	determine_if_candidate_is_in_screen(t_camera *cam,
+			t_collision_candidate *candidate)
 {
-	t_ray_collider			rc;
+	t_wall		*wall;
+	float		projection;
+	t_vector	wall_as_seen_from_camera;
 
-	if (pixel > camera_get_res_x(cam))
-		return ((t_collision){.exists = 0});
-	decide_candidates_of_pixel(cam, pixel);
-	rc = camera_pixel_to_ray(cam, pixel);
-	return (collide_ray_candidates(&rc, cam->collision_candidates,
-			world->wall_count));
+	wall = candidate->col->parent_wall;
+	wall_as_seen_from_camera = sub_vectors(wall->col.pos, cam->pos);
+	projection = vector_dot(cam->direction, wall_as_seen_from_camera);
+	if (projection > 0)
+		candidate->is_in_screen = 1;
+	else
+		candidate->is_in_screen = 0;
 }

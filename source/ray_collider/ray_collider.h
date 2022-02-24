@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:29:03 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/08 17:55:51 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 16:36:52 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,15 @@ typedef struct s_ray_collider
 	double		max_length;
 }				t_ray_collider;
 
-t_ray_collider	init_ray_collider();
-t_collision	calculate_ray_collider_wall_collision(t_ray_collider *rc, t_wall *wall);
+t_ray_collider	init_ray_collider(void);
+t_collision		calculate_ray_collider_wall_collision(t_ray_collider *rc,
+					t_wall *wall);
+t_collision		collide_ray_segment(t_ray_collider *ray, t_segment *segment);
+t_segment		ray_to_segment(t_ray_collider *ray);
+t_collision		collide_ray_bound_collider(t_ray_collider *ray,
+					t_bound_collider *bc);
+t_collision		collide_ray_world(t_ray_collider *rc, t_world *world);
+t_collision		collide_ray_candidates(t_ray_collider *rc,
+					t_collision_candidate *candidates, size_t candidate_count);
 
-
-t_collision	collide_ray_segment(t_ray_collider *ray, t_segment *segment);
-t_segment	ray_to_segment(t_ray_collider *ray);
-
-t_collision	collide_ray_bound_collider(t_ray_collider *ray, t_bound_collider *bc);
-
-t_collision	collide_ray_world(t_ray_collider *rc, t_world *world);
-
-t_collision	collide_ray_candidates(t_ray_collider *rc, t_collision_candidate *candidates, size_t candidate_count);
 #endif

@@ -6,13 +6,14 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:53:22 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/21 17:44:25 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 11:17:05 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "view_representator.h"
 
-int	representator_check_area_has_unpainted_pixels(t_view_representator *vr, t_bound_area area)
+int	representator_check_area_has_unpainted_pixels(t_view_representator *vr,
+			t_bound_area area)
 {
 	t_pixpos	pos;
 

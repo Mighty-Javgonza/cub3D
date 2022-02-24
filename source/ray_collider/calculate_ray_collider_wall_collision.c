@@ -6,14 +6,15 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:47:52 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/13 17:22:34 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 16:36:18 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ray_collider.h"
 #include "../wall/wall.h"
 
-t_collision	calculate_ray_collider_wall_collision(t_ray_collider *rc, t_wall *wall)
+t_collision	calculate_ray_collider_wall_collision(t_ray_collider *rc,
+			t_wall *wall)
 {
-	return (collide_ray_bound_collider(rc, &wall->col));	
+	return (collide_ray_bound_collider(rc, &wall->col));
 }

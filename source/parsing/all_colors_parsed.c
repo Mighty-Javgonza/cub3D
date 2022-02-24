@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_debug_paint_buffer.c                          :+:      :+:    :+:   */
+/*   all_colors_parsed.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 16:32:55 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/25 12:41:14 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/22 16:18:10 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/22 16:18:10 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "debug.h"
-#include <stdlib.h>
+#include "parsing.h"
 
-t_debug_paint_buffer	debug_paint_buffer;
-
-t_debug_paint_buffer	init_debug_paint_buffer(void *mlx, void *win)
+int	all_colors_parsed(t_map *map)
 {
-	t_debug_paint_buffer	rvalue;
-(void)win;
-(void)mlx;
+	int	i;
 
-	rvalue = (t_debug_paint_buffer)
+	i = 0;
+	while (i < 2)
 	{
-	};
-	return (rvalue);
+		if (map->parsed_colors[i] == 0)
+			return (0);
+		i++;
+	}
+	return (1);
 }

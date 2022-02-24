@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:42:46 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 13:08:01 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 11:47:58 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	calculate_distances_to_plane(t_camera *c)
 {
 	size_t			i;
 	t_vector		vector_to_plane;
-	
+
 	i = 0;
 	while (i < camera_get_res_x(c))
 	{

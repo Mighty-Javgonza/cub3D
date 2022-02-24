@@ -6,13 +6,13 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:56:25 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/15 14:56:25 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 15:23:35 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERROR_H
 # define ERROR_H
 
-
 void	exit_and_message(char *message);
+
 #endif

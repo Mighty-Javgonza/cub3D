@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 14:09:00 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 16:01:20 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 15:43:08 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,5 @@
 # define MAC_KEY_PAD_ADD		69
 # define MAC_KEY_PAD_ENTER		76
 # define MAC_KEY_PAD_DOT		65
-
-
 
 #endif

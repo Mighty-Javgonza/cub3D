@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:56:16 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/26 19:33:13 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 15:34:42 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ static int	point_in_segment_bound(t_vector v, t_segment *s)
 	return (1);
 }
 
-void	segment_segment_collider_decide_collision(t_segment_segment_collider *col)
+void	segment_segment_collider_decide_collision(
+				t_segment_segment_collider *col)
 {
 	col->exists = 0;
 	if (point_in_segment_bound(col->collision_point, col->s1))

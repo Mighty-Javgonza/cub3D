@@ -6,13 +6,14 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 18:02:32 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/25 16:18:42 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 15:34:53 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub_math.h"
 
-void	calculate_segment_segment_collision_point(t_segment_segment_collider *col)
+void	calculate_segment_segment_collision_point(
+			t_segment_segment_collider *col)
 {
 	t_vector	d1;
 

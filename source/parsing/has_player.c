@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:40:32 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/09 14:57:30 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 16:00:12 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ int	has_player(t_map *map)
 	current_line = map->world_buffer;
 	while (current_line != NULL)
 	{
-		player_loc = ft_strcharset(current_line->content, MAP_PLAYER_DIRECTIONS);
-		if  (player_loc != NULL)
+		player_loc = ft_strcharset(
+				current_line->content, MAP_PLAYER_DIRECTIONS);
+		if (player_loc != NULL)
 			player_counter++;
 		current_line = current_line->next;
 	}

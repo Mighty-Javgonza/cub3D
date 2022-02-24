@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 13:08:36 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/22 15:03:07 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 16:19:52 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,13 @@
 #include <stdio.h>
 #include "../error/error.h"
 
-static int	all_textures_parsed(t_map *map)
+static void	parse_texture_or_parse_color(t_map *map, char *line,
+				t_graphic_environment *ge)
 {
-	int	i;
-
-	i = 0;
-	while (i < 4)
-	{
-		if (map->parsed_textures[i] == 0)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-static int	all_colors_parsed(t_map *map)
-{
-	int	i;
-
-	i = 0;
-	while (i < 2)
-	{
-		if (map->parsed_colors[i] == 0)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-static void	exit_if_textures_and_colors_not_parsed(t_map *map)
-{
-	if (all_textures_parsed(map) == 0)
-		exit_and_message("Error on textures\n");
-	if (all_colors_parsed(map) == 0)
-		exit_and_message("Error on colors\n");
+	if (line[0] == 'F' || line[0] == 'C')
+		parse_color(map, line);
+	else
+		parse_texture(map, ge, line);
 }
 
 void	parse_map(t_map *map, t_graphic_environment *ge)
@@ -70,17 +43,9 @@ void	parse_map(t_map *map, t_graphic_environment *ge)
 			free(line);
 			continue ;
 		}
-		if (line[0] == 'F' || line[0] == 'C')
-			parse_color(map, line);
-		else
-			parse_texture(map, ge, line);
+		parse_texture_or_parse_color(map, line, ge);
 		free(line);
 		i++;
 	}
-	exit_if_textures_and_colors_not_parsed(map);
-	parse_world_lines(map);
-	validate_world(map);
-	close(map->fd);
-	if (map->valid == 0)
-		exit_and_message("World invalid\n");
+	close_map_or_exit_if_error(map);
 }

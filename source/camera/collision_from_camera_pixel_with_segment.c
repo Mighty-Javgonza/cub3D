@@ -6,14 +6,15 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 12:14:52 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/21 12:31:13 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 11:26:53 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
 #include <stdio.h>
 
-t_collision	collision_from_camera_pixel_with_segment(t_camera *cam, size_t pixel, t_segment *segment)
+t_collision	collision_from_camera_pixel_with_segment(t_camera *cam,
+			size_t pixel, t_segment *segment)
 {
 	t_ray_collider	rc;
 	t_collision		col;

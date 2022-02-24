@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:32:16 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/20 13:00:11 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 12:18:22 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include "camera/camera.h"
 # include "world/world.h"
 # include "player/player.h"
-# include "debug/debug.h"
 # include "graphics/graphics.h"
 # include "controls/controls.h"
 # include "textures/textures.h"
@@ -31,7 +30,5 @@
 # include "camera/view_representator/view_representator.h"
 # include "camera/wall_painter/wall_painter.h"
 # include "graphics/minimap/minimap.h"
-
-
 
 #endif

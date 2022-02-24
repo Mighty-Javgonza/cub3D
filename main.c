@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:30:32 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/22 12:54:01 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 12:42:11 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static int	update(t_global_environment *gb)
 	return (0);
 }
 
-static void	init_basic_parameters(t_world *world, t_graphic_environment *ge, char *map_name)
+static void	init_basic_parameters(t_world *world, t_graphic_environment *ge,
+			char *map_name)
 {
 	t_map			map;
 
@@ -39,12 +40,12 @@ static void	init_basic_parameters(t_world *world, t_graphic_environment *ge, cha
 	assign_default_textures(world, world->wall_textures);
 }
 
-void	show_leaks()
+void	show_leaks(void)
 {
 	system("leaks -q cub3D");
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_graphic_environment	ge;
 	t_world					world;

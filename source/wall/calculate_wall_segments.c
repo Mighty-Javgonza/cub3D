@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 11:34:24 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/16 18:09:20 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 16:41:21 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,12 @@ void	calculate_wall_segments(t_wall *wall)
 	wall->col.segments[1] = (t_segment){bot_left_corner, bot_right_corner};
 	wall->col.segments[2] = (t_segment){bot_right_corner, top_right_corner};
 	wall->col.segments[3] = (t_segment){top_right_corner, top_left_corner};
-
-	wall->col.segments[0] = add_segment_vector(wall->col.segments[0], (t_vector){-0.001, 0});
-	wall->col.segments[1] = add_segment_vector(wall->col.segments[1], (t_vector){0, 0.001});
-	wall->col.segments[2] = add_segment_vector(wall->col.segments[2], (t_vector){0.001, 0});
-	wall->col.segments[3] = add_segment_vector(wall->col.segments[3], (t_vector){0, -0.001});
+	wall->col.segments[0] = add_segment_vector(wall->col.segments[0],
+			(t_vector){-0.001, 0});
+	wall->col.segments[1] = add_segment_vector(wall->col.segments[1],
+			(t_vector){0, 0.001});
+	wall->col.segments[2] = add_segment_vector(wall->col.segments[2],
+			(t_vector){0.001, 0});
+	wall->col.segments[3] = add_segment_vector(wall->col.segments[3],
+			(t_vector){0, -0.001});
 }

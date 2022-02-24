@@ -6,14 +6,15 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:36:42 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/25 18:02:48 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 15:32:02 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub_math.h"
 #include <stdio.h>
 
-static void	collision_calculator(t_segment_segment_collider *col, t_vector s1, t_vector s2)
+static void	collision_calculator(t_segment_segment_collider *col,
+									t_vector s1, t_vector s2)
 {
 	if (col->s1->p1.x == col->s1->p2.x)
 	{
@@ -42,7 +43,8 @@ static void	collision_calculator(t_segment_segment_collider *col, t_vector s1, t
 	}
 }
 
-void	calculate_segment_segment_collision_factors(t_segment_segment_collider *col)
+void	calculate_segment_segment_collision_factors(
+				t_segment_segment_collider *col)
 {
 	t_vector	s1;
 	t_vector	s2;

@@ -6,13 +6,13 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:33:59 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/20 15:34:25 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/22 16:36:19 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ray_collider.h"
 
-t_ray_collider	init_ray_collider()
+t_ray_collider	init_ray_collider(void)
 {
 	t_ray_collider	rvalue;
 
