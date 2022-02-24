@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:30:32 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/24 12:42:11 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 13:00:10 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,19 @@ static void	init_basic_parameters(t_world *world, t_graphic_environment *ge,
 	*ge = init_graphic_environment((t_pixpos){1920, 1080});
 	map = init_map(map_name);
 	parse_map(&map, ge);
-	system("leaks -q cub3D");
 	world_shaper(world, &map);
 	destroy_map(&map);
 	assign_parent_to_colliders(world);
 	assign_default_textures(world, world->wall_textures);
 }
 
+/*
 void	show_leaks(void)
 {
 	system("leaks -q cub3D");
 }
+	atexit(show_leaks);
+*/
 
 int	main(int argc, char **argv)
 {
@@ -51,7 +53,6 @@ int	main(int argc, char **argv)
 	t_world					world;
 	t_global_environment	gb;
 
-	atexit(show_leaks);
 	if (argc != 2)
 		exit_and_message("Insert a map pls or delete maps, one at a time\n");
 	init_basic_parameters(&world, &ge, argv[1]);

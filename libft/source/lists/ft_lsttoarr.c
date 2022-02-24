@@ -6,12 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 13:06:13 by javgonza          #+#    #+#             */
-/*   Updated: 2020/12/17 12:07:04 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 13:10:30 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_lists.h"
-#include <stdio.h>
+#include <stdlib.h>
 
 /*
 ** Turns a list into an array of all the contents

@@ -20,7 +20,7 @@ RETEST_FOLDER_OBJS = $(RETEST_FOLDER_FILES:.c=.test)
 
 MAIN=main.c
 SRCS = $(SRS) $(MAIN)
-
+:
 PROJECT_ADVISOR = "Bonsai	|" 
 ECHO = echo $(PROJECT_ADVISOR)
 PWD = $(shell pwd)

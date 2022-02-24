@@ -6,12 +6,12 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 13:08:36 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/22 16:19:52 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 13:13:30 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
-#include <stdio.h>
+#include "../../libft/libft.h"
 #include "../error/error.h"
 
 static void	parse_texture_or_parse_color(t_map *map, char *line,

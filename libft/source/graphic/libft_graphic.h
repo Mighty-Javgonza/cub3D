@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 10:53:28 by javgonza          #+#    #+#             */
-/*   Updated: 2022/01/21 17:01:50 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 15:51:20 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../../type_defs.h"
 //# include "bezier.h"
 
-typedef struct		s_mlximage
+typedef struct s_mlximage
 {
 	void			*img;
 	char			*addr;
@@ -29,12 +29,12 @@ typedef struct		s_mlximage
 ** Definition for an implementation agnostic graphics buff
 */
 
-typedef union		u_gspecific
+typedef union u_gspecific
 {
 	t_mlximage		mlx;
 }					t_gspecific;
 
-typedef struct		s_gbuff
+typedef struct s_gbuff
 {
 	t_gspecific		impl;
 	size_t			res_x;
@@ -42,7 +42,7 @@ typedef struct		s_gbuff
 	t_color			paint_color;
 }					t_gbuff;
 
-typedef struct		s_mlx_window
+typedef struct s_mlx_window
 {
 	void			*mlx;
 	void			*win;
@@ -52,12 +52,12 @@ typedef struct		s_mlx_window
 ** Definition for an implementation agnostic graphics window
 */
 
-typedef union		u_wspecific
+typedef union u_wspecific
 {
 	t_mlx_window	mlx;
 }					t_wspecific;
 
-typedef struct		s_gwindow
+typedef struct s_gwindow
 {
 	t_wspecific		impl;
 	char			*name;
@@ -67,12 +67,12 @@ typedef struct		s_gwindow
 ** Definition for an implementation agnostic graphics server
 */
 
-typedef union		u_serspecific
+typedef union u_serspecific
 {
 	void			*mlx;
 }					t_serspecific;
 
-typedef struct		s_gserver
+typedef struct s_gserver
 {
 	t_serspecific	impl;
 }					t_gserver;
@@ -90,8 +90,8 @@ t_gbuff				ft_create_gbuff(size_t res_x, size_t res_y, \
 									t_gserver *handler);
 t_gwindow			ft_create_window(size_t res_x, size_t res_y, \
 									char *name, t_gserver *handler);
-t_gserver			ft_create_gserver();
-void				ft_gserver_begin_loop();
+t_gserver			ft_create_gserver(void);
+void				ft_gserver_begin_loop(t_gserver *gserver);
 
 void				ft_set_color_gbuff(t_gbuff *gbuff, t_color new_color);
 //void				ft_draw_rect(t_rect rect, t_gbuff *gbuff);

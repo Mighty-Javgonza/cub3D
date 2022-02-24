@@ -6,14 +6,14 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 12:21:19 by javgonza          #+#    #+#             */
-/*   Updated: 2020/12/07 13:25:20 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 15:49:47 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_LISTS_H
 # define LIBFT_LISTS_H
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;

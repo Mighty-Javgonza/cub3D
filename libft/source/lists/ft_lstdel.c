@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 10:08:46 by javgonza          #+#    #+#             */
-/*   Updated: 2020/12/17 11:05:44 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 13:10:11 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 */
 
 #include "libft_lists.h"
+#include <stdlib.h>
 
 void	ft_lstdel(t_list *list)
 {

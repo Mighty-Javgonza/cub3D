@@ -6,11 +6,14 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:21:28 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/08 16:14:34 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 15:45:08 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 double	ft_max_d(double v1, double v2)
 {
-	return (v1 > v2 ? v1 : v2);
+	if (v1 > v2)
+		return (v1);
+	else
+		return (v2);
 }

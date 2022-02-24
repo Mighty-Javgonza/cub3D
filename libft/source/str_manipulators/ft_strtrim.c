@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:08:07 by javgonza          #+#    #+#             */
-/*   Updated: 2020/12/16 11:33:15 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 15:33:27 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	check_caracter_set(char const c, char const *set)
 	return (0);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*bptr;
 	char	*eptr;

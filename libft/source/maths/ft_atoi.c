@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_atoi.c                                          :+:      :+:    :+:   */
+/*   cub_atoi.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgonza <javgonza@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/03 13:03:10 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/08 16:13:26 by javgonza         ###   ########.fr       */
+/*   Created: 2022/02/15 12:46:38 by javgonza          #+#    #+#             */
+/*   Updated: 2022/02/24 15:42:13 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_math.h"
-#include "../isfunctions/libft_isfunctions.h"
-
-int	ft_atoi(const char *nptr)
+int	ft_atoi(char *str)
 {
-	char			*ptr;
-	long long int	rvalue;
-	char			sign;
+	int	value;
+	int	sign;
 
-	sign = 0;
-	ptr = (char *)nptr;
-	if (*ptr == '\0')
-		return (0);
-	while (ft_isspace(*ptr))
-		ptr++;
-	if (*ptr == '-' || *ptr == '+')
-		sign = *ptr++;
-	rvalue = 0;
-	while (*ptr >= '0' && *ptr <= '9')
+	if (str[0] == '-')
 	{
-		if (rvalue > 9223372036854775807 / 10)
-			return (sign == '-' ? 0 : -1);
-		rvalue = rvalue * 10;
-		rvalue += *ptr - '0';
-		ptr++;
+		sign = -1;
+		str++;
 	}
-	if (sign == '-')
-		rvalue = -rvalue;
-	return ((int)rvalue);
+	else
+	{
+		sign = 1;
+	}
+	value = 0;
+	while (*str != '\0')
+	{
+		value *= 10;
+		value += (str[0] - '0') * sign;
+		str++;
+	}
+	return (value);
 }

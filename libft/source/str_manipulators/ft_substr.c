@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:06:55 by javgonza          #+#    #+#             */
-/*   Updated: 2020/12/16 11:32:15 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 15:33:17 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Cuts a string at pos start for len characters
 */
 
-char		*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*ptr;
 	char	*rvalue;

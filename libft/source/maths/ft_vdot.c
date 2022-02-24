@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:14:42 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/08 16:15:33 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 15:46:26 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 double	ft_vdot(t_vector v1, t_vector v2)
 {
-	double rvalue;
+	double	rvalue;
 
 	rvalue = v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
 	return (rvalue);

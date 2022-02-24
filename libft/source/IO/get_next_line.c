@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 12:42:57 by javgonza          #+#    #+#             */
-/*   Updated: 2020/11/23 12:23:34 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 15:40:12 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include "get_next_line.h"
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char	*buff[1024];
 	int			rvalue;
@@ -43,7 +43,7 @@ int		get_next_line(int fd, char **line)
 	return (1);
 }
 
-int		read_to_newline(char **buff, int fd)
+int	read_to_newline(char **buff, int fd)
 {
 	char			*temp_buff;
 	char			*res_ptr;
@@ -88,7 +88,7 @@ char	*find_newline(char *s)
 	return (0);
 }
 
-int		read_once(int fd, char **temp_buff)
+int	read_once(int fd, char **temp_buff)
 {
 	int		rvalue;
 

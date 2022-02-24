@@ -6,14 +6,14 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:02:50 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/08 16:06:18 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 15:37:36 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "../maths/libft_math.h"
 
-void		ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	int		control;
 	int		ndigits;
@@ -28,7 +28,8 @@ void		ft_putnbr_fd(int n, int fd)
 	while (i <= ndigits)
 	{
 		c = ((control / ft_pow(10, ndigits - i)) % 10) + '0';
-		c = c < '0' ? 2 * '0' - c : c;
+		if (c < '0')
+			c = 2 * '0' - c;
 		write(fd, &c, 1);
 		i++;
 	}

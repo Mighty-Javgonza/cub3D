@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:30:23 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/08 16:13:25 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 15:40:59 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static double	get_abs(char *ptr)
 	return (dec_part + int_part);
 }
 
-double			ft_atod(const char *d)
+double	ft_atod(const char *d)
 {
 	double	int_part;
 	double	dec_part;

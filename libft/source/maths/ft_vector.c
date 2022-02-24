@@ -6,7 +6,7 @@
 /*   By: javgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:14:31 by javgonza          #+#    #+#             */
-/*   Updated: 2022/02/08 16:15:35 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 15:46:34 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_vector	ft_vector(double x, double y, double z)
 {
-	t_vector rvalue;
+	t_vector	rvalue;
 
 	rvalue.x = x;
 	rvalue.y = y;

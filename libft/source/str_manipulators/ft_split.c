@@ -6,7 +6,7 @@
 /*   By: javgonza <javgonza@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/12 17:42:44 by javgonza          #+#    #+#             */
-/*   Updated: 2020/12/16 11:32:29 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 15:31:52 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static char	**get_split_array(char const *s, char c)
 	return (rvalue);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	*ptr;
 	int		count;

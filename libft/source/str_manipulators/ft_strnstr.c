@@ -6,9 +6,11 @@
 /*   By: javgonza <javgonza@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 13:05:13 by javgonza          #+#    #+#             */
-/*   Updated: 2020/12/16 11:31:30 by javgonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 15:32:28 by javgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -22,7 +24,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	blen = ft_strlen(big);
 	llen = ft_strlen(little);
 	if (*little == '\0')
-		return (char *)big;
+		return ((char *)big);
 	while (control + llen - 1 < len && control < blen - llen + 1)
 	{
 		ptr = (char *)(big + control);
@@ -31,5 +33,5 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 			return (ptr);
 		control++;
 	}
-	return ((void *)0);
+	return (NULL);
 }
